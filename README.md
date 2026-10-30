@@ -159,9 +159,11 @@ the random forest model. All except the ESTA demos are attached to the
 | What | Where to get it | Size |
 |---|---|---|
 | ESTA demos (1,558 professional matches, Jan 2021 – May 2022) | `git clone --depth 1 https://github.com/pnxenopoulos/esta.git esta` | 3.9 GB |
-| `data/engagement_dataset.csv` (402,873 rows × 154 columns) | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1): `engagement_dataset.zip` (126 MB), unzip into `data/`; or rebuild with `python build_dataset.py` | 473 MB |
-| `tuning_data/<model>_features.csv` | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1): `tuning_data.zip` (234 MB), unzip into `tuning_data/`; or rebuild with `python feature_engineering.py data/engagement_dataset.csv --per-model-dir tuning_data` | 2.4 GB in total |
-| Nav meshes | included (`nav_data/`) | 90 MB |
+| `data/engagement_dataset.csv` (402,873 rows × 154 columns) | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1): `engagement_dataset.zip` (120 MB), unzip into `data/`; or rebuild with `python build_dataset.py` | 451 MB |
+| `tuning_data/<model>_features.csv` | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1): `tuning_data.zip` (233 MB), unzip into `tuning_data/`; or rebuild with `python feature_engineering.py data/engagement_dataset.csv --per-model-dir tuning_data` | 2.2 GB in total |
+| Nav meshes | included (`nav_data/`) | 86 MB |
+
+Sizes are as GitHub and Windows show them (1 MB = 1,048,576 bytes).
 
 SHA-256 of `engagement_dataset.csv`:
 `68e2bf131488ecc3224d94fbafbcdd92f45c4867e8f4d1c1fa5dfc24ff451e01`
@@ -192,13 +194,13 @@ byte-identical copies of `xgboost_features.csv`: copy it to
 
 | File | Model | Features | Test ROC-AUC | Size | Where |
 |---|---|---|---|---|---|
-| `models/logistic_regression.joblib` | logistic regression | 549 | 0.7921 | 41 KB | repository |
-| `models/logistic_regression_after_elimination.joblib` | logistic regression, after elimination | 308 | 0.7922 | 25 KB | repository |
-| `models/random_forest.joblib` | random forest | 159 | 0.7909 | 277 MB | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1) |
-| `models/xgboost.ubj` | XGBoost | 159 | 0.8199 | 51.5 MB | repository |
-| `models/xgboost_after_elimination.ubj` | XGBoost, after elimination | 89 | 0.8209 | 52.2 MB | repository |
-| `models/transformer.pt` | FT-Transformer | 159 | 0.8184 | 1.5 MB | repository |
-| `models/transformer_after_elimination.pt` | FT-Transformer, after elimination | 111 | 0.8209 | 1.5 MB | repository |
+| `models/logistic_regression.joblib` | logistic regression | 549 | 0.7921 | 40 KB | repository |
+| `models/logistic_regression_after_elimination.joblib` | logistic regression, after elimination | 308 | 0.7922 | 24 KB | repository |
+| `models/random_forest.joblib` | random forest | 159 | 0.7909 | 265 MB | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1) |
+| `models/xgboost.ubj` | XGBoost | 159 | 0.8199 | 49.1 MB | repository |
+| `models/xgboost_after_elimination.ubj` | XGBoost, after elimination | 89 | 0.8209 | 49.8 MB | repository |
+| `models/transformer.pt` | FT-Transformer | 159 | 0.8184 | 1.4 MB | repository |
+| `models/transformer_after_elimination.pt` | FT-Transformer, after elimination | 111 | 0.8209 | 1.4 MB | repository |
 
 The random forest file is over GitHub's 100 MB limit, so it is attached to the
 release instead; download it into `models/` next to its `random_forest.json`.
