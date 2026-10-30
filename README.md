@@ -99,14 +99,11 @@ Figures: `tuning_results_n7/accuracy_over_time/`,
 
 ### Where each research question is answered
 
-<!-- TODO: update the RQ4 row once the with/without-nav-mesh comparison has run. -->
-
 | Research question | Evidence in this repository |
 |---|---|
-| RQ1: can the pre-engagement state predict the outcome? | `tuning_results_n7/<model>/<model>_held_out_test_result.json`, `model_comparison_summary.csv`, `accuracy_over_time/` |
-| RQ2: which feature categories matter most? | `feature_importance_analysis/`, `grouped_permutation_importance/` |
-| RQ3: traditional models versus a transformer | `model_comparison_summary.csv`, the per-model result files |
-| RQ4: do nav-mesh features help? | the nav-mesh row of the grouped importance (evidence of use, not yet a with/without comparison) |
+| To what extent can supervised machine learning models predict the outcome of player engagements in CS:GO using spatiotemporal telemetry and contextual gameplay features? | `tuning_results_n7/<model>/<model>_held_out_test_result.json`, `model_comparison_summary.csv`, `accuracy_over_time/` |
+| Which gameplay features contribute most strongly to engagement outcome prediction? | `feature_importance_analysis/`, `grouped_permutation_importance/`, `removed_feature_diagnostics.csv` |
+| Which supervised learning model achieves the highest predictive performance for engagement outcome prediction? | `model_comparison_summary.csv`, the per-model result files |
 
 ---
 
@@ -130,8 +127,8 @@ data folders by relative path; run them from the repository root.
 ├── feature_elimination.py           backward recursive feature elimination
 ├── run_feature_elimination.py       elimination driver + one refit scored on the test matches
 ├── accuracy_over_time.py            accuracy over match progression (10/20/30% windows)
-├── feature_importance_analysis.py   importance by category (RQ2), from saved importances
-├── grouped_permutation_importance.py  category shuffles on the test matches (RQ2)
+├── feature_importance_analysis.py   importance by feature category, from saved importances
+├── grouped_permutation_importance.py  category shuffles on the test matches
 ├── check_side_features.py           check that attacker_side / victim_side are redundant
 ├── save_final_models.py             refits, checks and saves the trained models
 ├── clean_checkpoint.py, merge_summaries.py, test_ray_cluster.py
@@ -292,7 +289,7 @@ the script.
    `python run_feature_elimination.py logistic_regression random_forest xgboost`
    and `python run_feature_elimination.py transformer` on the GPU machine.
 6. **Accuracy over match progression:** `python accuracy_over_time.py`
-7. **Feature importance (RQ2):**
+7. **Feature importance:**
    `python feature_importance_analysis.py --results-dir tuning_results_n7`
    (seconds; reads saved importances only), then
    `python grouped_permutation_importance.py xgboost random_forest logistic_regression --ablate-sides --n-jobs 8`
