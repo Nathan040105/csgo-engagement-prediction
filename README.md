@@ -69,6 +69,12 @@ only, hyperparameters held fixed):
 | Transformer | 159 → 111 | 0.8256 → 0.8306 | 0.8184 → 0.8209 |
 | Random forest | 159 → 159 (first step lost more than the tolerance) | 0.8022 | 0.7909 |
 
+Test accuracy changes by less than 0.002 for every model.
+`tuning_results_n7/removed_feature_diagnostics.csv` explains why each of the 80
+features removed by XGBoost or the transformer was dropped: it is nearly
+constant, nearly duplicates another feature, or adds nothing the other features
+do not already carry.
+
 **Which kinds of feature matter** (test ROC-AUC lost when all features in a
 category are shuffled together; mean of 5 shuffles):
 
