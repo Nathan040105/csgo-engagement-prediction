@@ -1,0 +1,29 @@
+# Data that is too large for the repository or can be rebuilt (see README, "Data")
+esta/
+data/
+tuning_data/*.csv
+
+# Model files over 95 MB are listed in models/.gitignore by save_final_models.py
+models/smoke_test/
+
+# Archives: upload these to the release instead of committing them
+*.zip
+*.7z
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+ray-env/
+
+# Logs, backups, editor and OS files
+*.log
+nohup.out
+*.bak
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,3 +1,25 @@
+"""
+parser.py - converts CS:GO navigation mesh files (nav_data/maps/<map>.nav)
+into JSON (nav_data/parsed/<map>.json), which nav_data.py reads.
+
+Adapted from fpapouin/pynav (https://github.com/fpapouin/pynav, commit
+76367d5, July 2021), "Parse csgo nav file to json with python thanks to
+https://github.com/mrazza/gonav/". pynav has no licence, so its original
+parts remain its author's; they are not covered by this repository's MIT
+licence.
+
+Changes made for this project:
+  - Areas with place id 0 (unnamed areas, which every map has) were silently
+    dropped, because the place-matching loop used place_id itself as its
+    "found" flag. It now uses an explicit flag, and unnamed areas go into an
+    "Unknown" place. Each map's area count now equals its file header's.
+  - Vector defaults in the dataclasses use default_factory (Python 3.11+
+    rejects the original instance defaults).
+  - n.b(add) -> n.rb(add) when reading visible-area attributes.
+  - Paths come from config.NAV_DATA_DIR, and main() parses every .nav file
+    in nav_data/maps.
+"""
+
 import os
 import struct
 import json
