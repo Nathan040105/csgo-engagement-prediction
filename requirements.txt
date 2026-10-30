@@ -1,0 +1,33 @@
+# requirements.txt for the CS:GO engagement prediction pipeline
+# (build_dataset.py, feature_engineering.py, model_tuning.py,
+# tabular_transformer.py)
+#
+# Versions are pinned exactly (==), not left as minimums, on
+# purpose: the Ray cluster needs every node running an identical
+# environment, since a version mismatch between the driver and a
+# worker can fail silently or produce subtly different results
+# rather than a clean error. Install this SAME file on your laptop
+# and on all 3 cluster nodes.
+#
+# Python: 3.12 (tested on 3.12.3). 3.10+ should work given nothing
+# here uses 3.12-only syntax, but 3.12 is what every version below
+# was actually validated against together - if a node is stuck on
+# an older Python, that combination hasn't been tested.
+
+# --- Core: required for extraction and feature engineering ---
+pandas==3.0.2
+numpy==2.4.4
+
+# --- Core: required for model_tuning.py (logistic regression,
+# random forest, XGBoost, metrics, permutation importance) ---
+scikit-learn==1.8.0
+xgboost==3.4.0
+matplotlib==3.10.8
+
+# --- Only needed if running the Tabular Transformer
+# (tabular_transformer.py) ---
+torch==2.13.0
+
+# --- Only needed for use_ray=True (distributed execution across
+# the cluster) - not needed for local/sequential runs ---
+ray[default]==2.57.0
