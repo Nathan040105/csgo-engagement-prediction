@@ -7,7 +7,7 @@
 # environment, since a version mismatch between the driver and a
 # worker can fail silently or produce subtly different results
 # rather than a clean error. Install this SAME file on your laptop
-# and on all 3 cluster nodes.
+# and on all cluster nodes.
 #
 # Python: 3.12 (tested on 3.12.3). 3.10+ should work given nothing
 # here uses 3.12-only syntax, but 3.12 is what every version below
