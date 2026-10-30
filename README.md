@@ -414,8 +414,3 @@ the script.
 - Pedregosa, F., et al. (2011). *Scikit-learn: Machine Learning in Python.*
   JMLR, 12, 2825–2830.
 
-## Use of AI tools
-
-<!-- Write this to match the AI-use declaration in the report (Wits form):
-     which tools, for what (e.g. code development, debugging, analysis), and
-     that the experiments were run and the results checked by the author. -->
