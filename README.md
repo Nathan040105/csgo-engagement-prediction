@@ -128,7 +128,7 @@ data folders by relative path; run them from the repository root.
 ├── grouped_permutation_importance.py  category shuffles on the test matches (RQ2)
 ├── check_side_features.py           check that attacker_side / victim_side are redundant
 ├── save_final_models.py             refits, checks and saves the trained models
-├── clean_checkpoint.py, merge_summaries.py, debug_transformer_importance.py, test_ray_cluster.py
+├── clean_checkpoint.py, merge_summaries.py, test_ray_cluster.py
 │                                    small utilities used along the way
 ├── requirements.txt
 ├── nav_data/
@@ -144,12 +144,13 @@ data folders by relative path; run them from the repository root.
 │   ├── feature_importance_analysis/
 │   ├── grouped_permutation_importance/
 │   └── model_comparison_summary.csv
-└── models/                          trained models + manifest.csv (large files in the release)
+└── models/                          trained models + manifest.csv (the random forest is in the release)
 ```
 
-Not in the repository: the ESTA demos (`esta/`), `data/engagement_dataset.csv`
-and the four `tuning_data/*_features.csv` files. The next section says how to get
-each.
+Not in the repository, because they are too large: the ESTA demos (`esta/`),
+`data/engagement_dataset.csv`, the four `tuning_data/*_features.csv` files and
+the random forest model. All except the ESTA demos are attached to the
+[`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1); the next section says how to get each.
 
 ---
 
@@ -158,12 +159,17 @@ each.
 | What | Where to get it | Size |
 |---|---|---|
 | ESTA demos (1,558 professional matches, Jan 2021 – May 2022) | `git clone --depth 1 https://github.com/pnxenopoulos/esta.git esta` | 3.9 GB |
-| `data/engagement_dataset.csv` (402,873 rows × 154 columns) | release **v1.0** of this repository, or rebuild with `python build_dataset.py` | 473 MB |
-| `tuning_data/<model>_features.csv` | rebuild: `python feature_engineering.py data/engagement_dataset.csv --per-model-dir tuning_data` | 2.4 GB in total |
+| `data/engagement_dataset.csv` (402,873 rows × 154 columns) | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1): `engagement_dataset.zip` (126 MB), unzip into `data/`; or rebuild with `python build_dataset.py` | 473 MB |
+| `tuning_data/<model>_features.csv` | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1): `tuning_data.zip` (234 MB), unzip into `tuning_data/`; or rebuild with `python feature_engineering.py data/engagement_dataset.csv --per-model-dir tuning_data` | 2.4 GB in total |
 | Nav meshes | included (`nav_data/`) | 90 MB |
 
 SHA-256 of `engagement_dataset.csv`:
 `68e2bf131488ecc3224d94fbafbcdd92f45c4867e8f4d1c1fa5dfc24ff451e01`
+
+`tuning_data.zip` holds `logistic_regression_features.csv` and
+`xgboost_features.csv`. The random forest and transformer CSVs are
+byte-identical copies of `xgboost_features.csv`: copy it to
+`random_forest_features.csv` and `transformer_features.csv`.
 
 - **Seven maps:** de_ancient, de_dust2, de_inferno, de_mirage, de_nuke,
   de_overpass, de_train. **de_vertigo is excluded** (`config.py`,
@@ -184,22 +190,26 @@ SHA-256 of `engagement_dataset.csv`:
 
 ## Trained models
 
-<!-- Paste the rows of models/manifest.csv here after running save_final_models.py. -->
-
 | File | Model | Features | Test ROC-AUC | Size | Where |
 |---|---|---|---|---|---|
-| `models/logistic_regression.joblib` | logistic regression | 549 | | | repository |
-| `models/logistic_regression_after_elimination.joblib` | logistic regression, after elimination | 308 | | | repository |
-| `models/random_forest.joblib` | random forest | 159 | | | release v1.0 |
-| `models/xgboost.ubj` | XGBoost | 159 | | | |
-| `models/xgboost_after_elimination.ubj` | XGBoost, after elimination | 89 | | | |
-| `models/transformer.pt` | FT-Transformer | 159 | | | |
-| `models/transformer_after_elimination.pt` | FT-Transformer, after elimination | 111 | | | |
+| `models/logistic_regression.joblib` | logistic regression | 549 | 0.7921 | 41 KB | repository |
+| `models/logistic_regression_after_elimination.joblib` | logistic regression, after elimination | 308 | 0.7922 | 25 KB | repository |
+| `models/random_forest.joblib` | random forest | 159 | 0.7909 | 277 MB | [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1) |
+| `models/xgboost.ubj` | XGBoost | 159 | 0.8199 | 51.5 MB | repository |
+| `models/xgboost_after_elimination.ubj` | XGBoost, after elimination | 89 | 0.8209 | 52.2 MB | repository |
+| `models/transformer.pt` | FT-Transformer | 159 | 0.8184 | 1.5 MB | repository |
+| `models/transformer_after_elimination.pt` | FT-Transformer, after elimination | 111 | 0.8209 | 1.5 MB | repository |
+
+The random forest file is over GitHub's 100 MB limit, so it is attached to the
+release instead; download it into `models/` next to its `random_forest.json`.
 
 No training run saved a model, so `save_final_models.py` refits each one
 exactly as the held-out test step did (same data, same seed-42 match split, same
 tuned hyperparameters, seed 42), compares the refit's test predictions with the
-saved ones, and saves it. `models/manifest.csv` records that comparison, the
+saved ones, and saves it. All seven refits reproduced the original runs' test
+predictions exactly (the same predicted class for every one of the 81,693 test
+engagements, and identical class probabilities), and each saved file reloads to
+the same predictions. `models/manifest.csv` records that comparison, the
 file size and the SHA-256 of every file; `models/<name>.json` lists the columns
 each model expects, in order. An exact match needs the pinned library versions:
 with newer versions the refits differ slightly.
@@ -222,6 +232,15 @@ PyTorch `.pt` files are not pickles.
 ---
 
 ## Reproducing the results
+
+**Getting the repository:**
+
+```bash
+git clone https://github.com/Nathan040105/csgo-engagement-prediction.git
+cd csgo-engagement-prediction
+```
+
+Then download what you need from the [`data-v1` release](https://github.com/Nathan040105/csgo-engagement-prediction/releases/tag/data-v1) (see Data).
 
 **Environment.** Python 3.12 with the pinned versions in `requirements.txt`
 (pandas 3.0.2, numpy 2.4.4, scikit-learn 1.8.0, xgboost 3.4.0, matplotlib
@@ -247,11 +266,12 @@ the script.
 
 1. **Nav meshes** (already done; `nav_data/parsed/` is included):
    `python parser.py`
-2. **Dataset:** clone ESTA into `esta/` (table above), then
-   `python build_dataset.py`. Or download `engagement_dataset.csv` from the
-   release into `data/`.
-3. **Feature CSVs:**
-   `python feature_engineering.py data/engagement_dataset.csv --per-model-dir tuning_data`
+2. **Dataset:** unzip `engagement_dataset.zip` from the release into `data/`,
+   or rebuild it: clone ESTA into `esta/` (table above) and run
+   `python build_dataset.py`.
+3. **Feature CSVs:** unzip `tuning_data.zip` from the release into
+   `tuning_data/` and make the two copies described under Data, or rebuild all
+   four: `python feature_engineering.py data/engagement_dataset.csv --per-model-dir tuning_data`
 4. **Tuning and held-out test** (1,962 hyperparameter combinations × 7 repeats):
    `python run_final_tuning.py logistic_regression random_forest xgboost`, and
    `python run_final_tuning.py transformer` on the GPU machine. With

@@ -1,0 +1,8 @@
+name,model,variant,file,size_mb,sha256,sha256_ok,in_git,n_features,test_roc_auc,saved_test_roc_auc,reproduces_saved_predictions,n_test_predictions_different,max_abs_probability_difference,reload_matches,smoke_test
+logistic_regression,logistic_regression,all features,logistic_regression.joblib,0.04,bc2a25bae91da39fcc30617ae976c5eb10f7864057409dc5c0bf1172f10d4fa2,True,True,549,0.792122,0.792122,True,0,0.0,True,False
+logistic_regression_after_elimination,logistic_regression,after feature elimination,logistic_regression_after_elimination.joblib,0.02,e93cea1d66583bde4167bf0eb74f283730d13735abce5ecb3769a6491d3e0865,True,True,308,0.792246,0.792246,True,0,0.0,True,False
+random_forest,random_forest,all features,random_forest.joblib,264.52,6afd2f9f1b1ff96df1cf22c8eae62cfb8fb58c81844138b905f9e7f224fcef07,True,False,159,0.790949,0.790949,True,0,0.0,True,False
+transformer,transformer,all features,transformer.pt,1.43,87dd44c33f0764bb117d1faa332db17757c1a4990123470f8a7b3876c68f5a83,True,True,159,0.818369,0.818369,True,0,0.0,True,False
+transformer_after_elimination,transformer,after feature elimination,transformer_after_elimination.pt,1.38,afb4b8d89998c0401ad8ea49f7271903e55f1af888676102864a459904954267,True,True,111,0.820881,0.820881,True,0,0.0,True,False
+xgboost,xgboost,all features,xgboost.ubj,49.14,9139df42616794cfe995d004765e74f2b48786a61be09ac37652ffed4839fb24,True,True,159,0.819901,0.819901,True,0,0.0,True,False
+xgboost_after_elimination,xgboost,after feature elimination,xgboost_after_elimination.ubj,49.81,f1cf4abb883f56690659e4e65f793eb81c9bca257bb6393059d28e240156e5af,True,True,89,0.820874,0.820874,True,0,0.0,True,False
