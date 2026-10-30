@@ -1,0 +1,7 @@
+model_a,model_b,spearman_all_features,top20_overlap
+xgboost,transformer,0.6123853138359558,12
+xgboost,random_forest,0.6789447993745433,15
+xgboost,logistic_regression,0.5917459780508267,9
+transformer,random_forest,0.7590682730017765,12
+transformer,logistic_regression,0.7559098745385457,10
+random_forest,logistic_regression,0.6766947468856713,9

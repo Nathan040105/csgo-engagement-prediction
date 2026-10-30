@@ -1,0 +1,12 @@
+{
+  "best_params": {
+    "d_token": 128,
+    "n_layers": 2,
+    "n_heads": 8,
+    "dropout": 0.1,
+    "learning_rate": 0.0003
+  },
+  "best_score": 0.8254680646979841,
+  "primary_metric": "roc_auc_mean",
+  "fingerprint": "09d7daa1bc77f3c7"
+}

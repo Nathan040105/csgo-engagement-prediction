@@ -1,0 +1,29 @@
+model,category,n_features,n_features_kept,pct_features_kept,n_columns,n_columns_kept
+xgboost,Spatial,33,23,69.6969696969697,33,23
+xgboost,Movement,11,9,81.81818181818181,11,9
+xgboost,Combat state,32,19,59.375,32,19
+xgboost,Economy & utility,40,15,37.5,40,15
+xgboost,Round & team context,23,15,65.21739130434783,23,15
+xgboost,Map geometry (nav mesh),15,7,46.666666666666664,15,7
+xgboost,Connection / other,5,1,20.0,5,1
+transformer,Spatial,33,29,87.87878787878788,33,29
+transformer,Movement,11,9,81.81818181818181,11,9
+transformer,Combat state,32,25,78.125,32,25
+transformer,Economy & utility,40,25,62.5,40,25
+transformer,Round & team context,23,15,65.21739130434783,23,15
+transformer,Map geometry (nav mesh),15,8,53.333333333333336,15,8
+transformer,Connection / other,5,0,0.0,5,0
+random_forest,Spatial,33,33,100.0,33,33
+random_forest,Movement,11,11,100.0,11,11
+random_forest,Combat state,32,32,100.0,32,32
+random_forest,Economy & utility,40,40,100.0,40,40
+random_forest,Round & team context,23,23,100.0,23,23
+random_forest,Map geometry (nav mesh),15,15,100.0,15,15
+random_forest,Connection / other,5,5,100.0,5,5
+logistic_regression,Spatial,33,29,87.87878787878788,33,29
+logistic_regression,Movement,11,11,100.0,11,11
+logistic_regression,Combat state,32,32,100.0,194,100
+logistic_regression,Economy & utility,40,21,52.5,40,21
+logistic_regression,Round & team context,23,17,73.91304347826087,31,25
+logistic_regression,Map geometry (nav mesh),15,11,73.33333333333333,235,121
+logistic_regression,Connection / other,5,1,20.0,5,1

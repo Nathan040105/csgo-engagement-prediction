@@ -1,0 +1,5 @@
+model,validation_roc_auc,held_out_test_roc_auc,best_params
+xgboost,0.8274710980121532,0.8199006497585318,"{'n_estimators': 500, 'max_depth': 9, 'learning_rate': 0.03, 'subsample': 0.6, 'colsample_bytree': 0.8}"
+transformer,0.8254680646979841,0.8183687991843563,"{'d_token': 128, 'n_layers': 2, 'n_heads': 8, 'dropout': 0.1, 'learning_rate': 0.0003}"
+logistic_regression,0.8034874247730993,0.7921224492027205,{'C': 0.001}
+random_forest,0.8021959849789226,0.7909487160100833,"{'n_estimators': 500, 'max_depth': None, 'min_samples_leaf': 20, 'max_features': 'sqrt'}"

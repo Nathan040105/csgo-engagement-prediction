@@ -1,0 +1,11 @@
+{
+  "best_params": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "max_features": "sqrt"
+  },
+  "best_score": 0.8021959849789226,
+  "primary_metric": "roc_auc_mean",
+  "fingerprint": "09d7daa1bc77f3c7"
+}

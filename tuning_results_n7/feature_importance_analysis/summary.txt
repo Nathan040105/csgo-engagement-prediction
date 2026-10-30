@@ -1,0 +1,97 @@
+Results folder: tuning_results_n7
+Models found: XGBoost, Transformer, Random forest, Logistic regression
+Original features: 159  (attacker 65, victim 65, shared 29)
+Features per category: Spatial 33, Movement 11, Combat state 32, Economy & utility 40, Round & team context 23, Map geometry (nav mesh) 15, Connection / other 5
+
+XGBoost              input columns  159   with importance > 0:  107   total (floored) importance 0.1936
+Transformer          input columns  159   with importance > 0:  127   total (floored) importance 0.3296
+Random forest        input columns  159   with importance > 0:  124   total (floored) importance 0.1254
+Logistic regression  input columns  549   with importance > 0:  385   total (floored) importance 0.2166
+
+Share of each model's total importance (%), by category:
+                         n_features  XGBoost  Transformer  Random forest  Logistic regression  mean
+category                                                                                           
+Spatial                          33     40.4         28.0           37.3                 31.1  34.2
+Combat state                     32     25.3         18.5           26.1                 35.0  26.2
+Round & team context             23     16.6         41.0           12.8                 17.0  21.8
+Economy & utility                40      8.9          3.7           12.5                  6.2   7.8
+Map geometry (nav mesh)          15      6.1          6.9            8.9                  7.6   7.4
+Movement                         11      2.7          1.9            2.4                  3.1   2.5
+Connection / other                5      0.0          0.1            0.0                  0.0   0.0
+
+Share of total importance held by attacker_side + victim_side alone: XGBoost 0.0%, Transformer 32.5%, Random forest 0.1%, Logistic regression 0.4%
+Category shares (%) with those two features set aside and the rest re-normalised:
+                         XGBoost  Transformer  Random forest  Logistic regression
+category                                                                         
+Spatial                     40.4         41.4           37.4                 31.3
+Combat state                25.3         27.3           26.1                 35.1
+Round & team context        16.6         12.7           12.7                 16.6
+Economy & utility            8.9          5.4           12.5                  6.2
+Map geometry (nav mesh)      6.1         10.2            8.9                  7.6
+Movement                     2.7          2.8            2.4                  3.1
+Connection / other           0.0          0.2            0.0                  0.0
+
+Share of total importance (%) by whose feature it is, the two side columns set aside (shared = differences, distances, angles, team totals, round context):
+          n_features  XGBoost  Transformer  Random forest  Logistic regression
+owner                                                                         
+attacker          64     26.8         30.0           34.9                 33.8
+victim            64     36.7         38.1           26.7                 35.3
+shared            29     36.6         31.8           38.5                 31.0
+Mean importance per feature, in thousandths of macro-F1 (same grouping):
+          XGBoost  Transformer  Random forest  Logistic regression
+owner                                                             
+attacker     0.81         1.04           0.68                 1.14
+victim       1.11         1.33           0.52                 1.19
+shared       2.44         2.44           1.66                 2.30
+
+Top 5 features per model (macro-F1 drop, mean +/- std):
+  XGBoost              horizontal_angle_difference 0.0172+/-0.0013; victim_hp 0.0122+/-0.0019; victim_alive_enemies 0.0112+/-0.0037; victim_closest_teammate 0.0104+/-0.0014; hp_difference 0.0098+/-0.0010
+  Transformer          attacker_side 0.0542+/-0.0084; victim_side 0.0529+/-0.0037; horizontal_angle_difference 0.0123+/-0.0012; nav_path_distance 0.0107+/-0.0024; victim_hp 0.0105+/-0.0013
+  Random forest        nav_path_distance 0.0093+/-0.0006; horizontal_angle_difference 0.0077+/-0.0005; victim_closest_teammate 0.0068+/-0.0007; attacker_equipment 0.0063+/-0.0006; victim_hp 0.0057+/-0.0005
+  Logistic regression  engagement_distance 0.0142+/-0.0011; horizontal_angle_difference 0.0129+/-0.0011; hp_difference 0.0107+/-0.0012; victim_alive_enemies 0.0106+/-0.0015; victim_hp 0.0087+/-0.0010
+
+  XGBoost              #1 feature = 8.9% of total importance; top 2 = 15.2%
+  Transformer          #1 feature = 16.4% of total importance; top 2 = 32.5%
+  Random forest        #1 feature = 7.4% of total importance; top 2 = 13.5%
+  Logistic regression  #1 feature = 6.5% of total importance; top 2 = 12.5%
+
+Features in the top 20 of EVERY model:
+  clock_time_seconds, engagement_distance, horizontal_angle_difference, hp_difference, victim_hp
+
+Consensus top 10 (lowest average rank across models):
+   1. horizontal_angle_difference      Spatial     mean rank   2.0  (best 1, worst 3; in top-20 of 4 models)
+   2. victim_hp                        Combat      mean rank   4.2  (best 2, worst 5; in top-20 of 4 models)
+   3. hp_difference                    Combat      mean rank   6.5  (best 3, worst 10; in top-20 of 4 models)
+   4. engagement_distance              Spatial     mean rank   7.2  (best 1, worst 13; in top-20 of 4 models)
+   5. nav_path_distance                Nav mesh    mean rank   9.5  (best 1, worst 26; in top-20 of 3 models)
+   6. victim_closest_teammate          Spatial     mean rank  10.0  (best 3, worst 27; in top-20 of 3 models)
+   7. clock_time_seconds               Round/team  mean rank  14.0  (best 9, worst 20; in top-20 of 4 models)
+   8. victim_alive_enemies             Round/team  mean rank  15.2  (best 3, worst 35; in top-20 of 3 models)
+   9. victim_closest_enemy             Spatial     mean rank  16.0  (best 6, worst 39; in top-20 of 3 models)
+  10. attacker_equipment               Economy     mean rank  17.0  (best 4, worst 29; in top-20 of 2 models)
+
+Agreement between models (Spearman over all 159 features; overlap of the top 20):
+  XGBoost              vs Transformer          rho = 0.612   overlap 12/20
+  XGBoost              vs Random forest        rho = 0.679   overlap 15/20
+  XGBoost              vs Logistic regression  rho = 0.592   overlap 9/20
+  Transformer          vs Random forest        rho = 0.759   overlap 12/20
+  Transformer          vs Logistic regression  rho = 0.756   overlap 10/20
+  Random forest        vs Logistic regression  rho = 0.677   overlap 9/20
+
+Share of each category kept by feature elimination (%):
+                         XGBoost  Transformer  Random forest  Logistic regression
+category                                                                         
+Spatial                       70           88            100                   88
+Movement                      82           82            100                  100
+Combat state                  59           78            100                  100
+Economy & utility             38           62            100                   52
+Round & team context          65           65            100                   74
+Map geometry (nav mesh)       47           53            100                   73
+Connection / other            20            0            100                   20
+  XGBoost              159 -> 89 columns (70 removed)
+  Transformer          159 -> 111 columns (48 removed)
+  Random forest        159 -> 159 columns (0 removed)
+  Logistic regression  549 -> 308 columns (241 removed)
+
+Top-20 features that elimination REMOVED (should be none or few):
+  none

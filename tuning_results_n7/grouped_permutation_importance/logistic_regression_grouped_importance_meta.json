@@ -1,0 +1,72 @@
+{
+  "model": "logistic_regression",
+  "best_params_used": {
+    "C": 0.001
+  },
+  "smoke_test": false,
+  "n_train_rows": 321180,
+  "n_test_rows": 81693,
+  "baseline_test": {
+    "accuracy": 0.6030871678111955,
+    "f1": 0.32913407695100644,
+    "precision": 0.48595213207450966,
+    "recall": 0.3112164408814467,
+    "roc_auc": 0.7921224492027205
+  },
+  "baseline_per_class_auc": {
+    "attacker_won": 0.79066535606071,
+    "interrupted": 0.7499873278411175,
+    "mutual_kill": 0.6579755183520508,
+    "round_end": 0.8955102366468692,
+    "timedout": 0.8506436831043362,
+    "victim_won": 0.807952573211239
+  },
+  "saved_held_out_roc_auc": 0.7921224492027205,
+  "saved_held_out_f1": 0.32913407695100644,
+  "difference_vs_saved_roc_auc": 0.0,
+  "reproduces_saved_result": true,
+  "repeats": 5,
+  "seed": 1000,
+  "n_jobs": 8,
+  "fit_seconds": 95.70502805709839,
+  "total_seconds": 242.70469164848328,
+  "versions": {
+    "python": "3.12.3",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "sklearn": "1.8.0",
+    "xgboost": "3.4.0",
+    "torch": "2.13.0+cu130"
+  },
+  "side_ablation": {
+    "columns_removed": [
+      "attacker_side_CT",
+      "attacker_side_T",
+      "victim_side_CT",
+      "victim_side_T"
+    ],
+    "auc_with_sides": 0.7921224492027205,
+    "auc_without_sides": 0.7920998383856462,
+    "auc_change_when_removed": -2.261081707422008e-05,
+    "f1_with_sides": 0.32913407695100644,
+    "f1_without_sides": 0.3287008371850461,
+    "accuracy_with_sides": 0.6030871678111955,
+    "accuracy_without_sides": 0.6028423487936543,
+    "per_class_auc_with_sides": {
+      "attacker_won": 0.79066535606071,
+      "interrupted": 0.7499873278411175,
+      "mutual_kill": 0.6579755183520508,
+      "round_end": 0.8955102366468692,
+      "timedout": 0.8506436831043362,
+      "victim_won": 0.807952573211239
+    },
+    "per_class_auc_without_sides": {
+      "attacker_won": 0.7905876885465483,
+      "interrupted": 0.7501261731478119,
+      "mutual_kill": 0.6581472817900139,
+      "round_end": 0.8955310044064283,
+      "timedout": 0.8503424894403944,
+      "victim_won": 0.8078643929826808
+    }
+  }
+}

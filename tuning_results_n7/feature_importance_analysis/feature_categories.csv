@@ -1,0 +1,160 @@
+feature,category,proposal_category,owner
+armor_difference,Combat state,Combat,shared
+attacker_active_weapon,Combat state,Combat,attacker
+attacker_active_weapon_class,Combat state,Combat,attacker
+attacker_armor,Combat state,Combat,attacker
+attacker_blinded,Combat state,Combat,attacker
+attacker_has_helmet,Combat state,Combat,attacker
+attacker_hp,Combat state,Combat,attacker
+attacker_magazine_pct,Combat state,Combat,attacker
+attacker_magazine_pct_missing,Combat state,Combat,attacker
+attacker_primary_weapon,Combat state,Combat,attacker
+attacker_reloading,Combat state,Combat,attacker
+attacker_reserve_pct,Combat state,Combat,attacker
+attacker_reserve_pct_missing,Combat state,Combat,attacker
+attacker_scoped,Combat state,Combat,attacker
+attacker_secondary_weapon,Combat state,Combat,attacker
+attacker_zoom_level,Combat state,Combat,attacker
+hp_difference,Combat state,Combat,shared
+victim_active_weapon,Combat state,Combat,victim
+victim_active_weapon_class,Combat state,Combat,victim
+victim_armor,Combat state,Combat,victim
+victim_blinded,Combat state,Combat,victim
+victim_has_helmet,Combat state,Combat,victim
+victim_hp,Combat state,Combat,victim
+victim_magazine_pct,Combat state,Combat,victim
+victim_magazine_pct_missing,Combat state,Combat,victim
+victim_primary_weapon,Combat state,Combat,victim
+victim_reloading,Combat state,Combat,victim
+victim_reserve_pct,Combat state,Combat,victim
+victim_reserve_pct_missing,Combat state,Combat,victim
+victim_scoped,Combat state,Combat,victim
+victim_secondary_weapon,Combat state,Combat,victim
+victim_zoom_level,Combat state,Combat,victim
+attacker_ping,Connection / other,not in the proposal,attacker
+attacker_ping_missing,Connection / other,not in the proposal,attacker
+is_lan,Connection / other,not in the proposal,shared
+victim_ping,Connection / other,not in the proposal,victim
+victim_ping_missing,Connection / other,not in the proposal,victim
+attacker_cash,Economy & utility,Contextual (team economy),attacker
+attacker_decoys,Economy & utility,Contextual (team economy),attacker
+attacker_equipment,Economy & utility,Contextual (team economy),attacker
+attacker_flashbangs,Economy & utility,Contextual (team economy),attacker
+attacker_has_decoy,Economy & utility,Contextual (team economy),attacker
+attacker_has_flash,Economy & utility,Contextual (team economy),attacker
+attacker_has_he,Economy & utility,Contextual (team economy),attacker
+attacker_has_incendiary,Economy & utility,Contextual (team economy),attacker
+attacker_has_molotov,Economy & utility,Contextual (team economy),attacker
+attacker_has_smoke,Economy & utility,Contextual (team economy),attacker
+attacker_has_zeus,Economy & utility,Contextual (team economy),attacker
+attacker_hegrenades,Economy & utility,Contextual (team economy),attacker
+attacker_incendiaries,Economy & utility,Contextual (team economy),attacker
+attacker_inventory_size,Economy & utility,Contextual (team economy),attacker
+attacker_molotovs,Economy & utility,Contextual (team economy),attacker
+attacker_smokes,Economy & utility,Contextual (team economy),attacker
+attacker_total_utility,Economy & utility,Contextual (team economy),attacker
+ct_equipment,Economy & utility,Contextual (team economy),shared
+ct_total_utility,Economy & utility,Contextual (team economy),shared
+equipment_difference,Economy & utility,Contextual (team economy),shared
+t_equipment,Economy & utility,Contextual (team economy),shared
+t_total_utility,Economy & utility,Contextual (team economy),shared
+utility_difference,Economy & utility,Contextual (team economy),shared
+victim_cash,Economy & utility,Contextual (team economy),victim
+victim_decoys,Economy & utility,Contextual (team economy),victim
+victim_equipment,Economy & utility,Contextual (team economy),victim
+victim_flashbangs,Economy & utility,Contextual (team economy),victim
+victim_has_decoy,Economy & utility,Contextual (team economy),victim
+victim_has_flash,Economy & utility,Contextual (team economy),victim
+victim_has_he,Economy & utility,Contextual (team economy),victim
+victim_has_incendiary,Economy & utility,Contextual (team economy),victim
+victim_has_molotov,Economy & utility,Contextual (team economy),victim
+victim_has_smoke,Economy & utility,Contextual (team economy),victim
+victim_has_zeus,Economy & utility,Contextual (team economy),victim
+victim_hegrenades,Economy & utility,Contextual (team economy),victim
+victim_incendiaries,Economy & utility,Contextual (team economy),victim
+victim_inventory_size,Economy & utility,Contextual (team economy),victim
+victim_molotovs,Economy & utility,Contextual (team economy),victim
+victim_smokes,Economy & utility,Contextual (team economy),victim
+victim_total_utility,Economy & utility,Contextual (team economy),victim
+attacker_area_connectivity,Map geometry (nav mesh),Spatial (positional advantage / cover),attacker
+attacker_area_connectivity_missing,Map geometry (nav mesh),Spatial (positional advantage / cover),attacker
+attacker_callout,Map geometry (nav mesh),Spatial (positional advantage / cover),attacker
+attacker_exposed,Map geometry (nav mesh),Spatial (positional advantage / cover),attacker
+attacker_near_cover,Map geometry (nav mesh),Spatial (positional advantage / cover),attacker
+nav_los_proxy_ratio,Map geometry (nav mesh),Spatial (positional advantage / cover),shared
+nav_los_proxy_ratio_missing,Map geometry (nav mesh),Spatial (positional advantage / cover),shared
+nav_path_distance,Map geometry (nav mesh),Spatial (positional advantage / cover),shared
+nav_path_distance_missing,Map geometry (nav mesh),Spatial (positional advantage / cover),shared
+same_callout,Map geometry (nav mesh),Spatial (positional advantage / cover),shared
+victim_area_connectivity,Map geometry (nav mesh),Spatial (positional advantage / cover),victim
+victim_area_connectivity_missing,Map geometry (nav mesh),Spatial (positional advantage / cover),victim
+victim_callout,Map geometry (nav mesh),Spatial (positional advantage / cover),victim
+victim_exposed,Map geometry (nav mesh),Spatial (positional advantage / cover),victim
+victim_near_cover,Map geometry (nav mesh),Spatial (positional advantage / cover),victim
+attacker_airborne,Movement,Temporal (velocity and posture only; no acceleration),attacker
+attacker_ducking,Movement,Temporal (velocity and posture only; no acceleration),attacker
+attacker_speed,Movement,Temporal (velocity and posture only; no acceleration),attacker
+attacker_standing,Movement,Temporal (velocity and posture only; no acceleration),attacker
+attacker_walking,Movement,Temporal (velocity and posture only; no acceleration),attacker
+speed_difference,Movement,Temporal (velocity and posture only; no acceleration),shared
+victim_airborne,Movement,Temporal (velocity and posture only; no acceleration),victim
+victim_ducking,Movement,Temporal (velocity and posture only; no acceleration),victim
+victim_speed,Movement,Temporal (velocity and posture only; no acceleration),victim
+victim_standing,Movement,Temporal (velocity and posture only; no acceleration),victim
+victim_walking,Movement,Temporal (velocity and posture only; no acceleration),victim
+alive_difference,Round & team context,"Contextual (round time, bomb status, map)",shared
+attacker_alive_enemies,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_alive_teammates,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_bombzone,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_buyzone,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_defusing,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_has_bomb,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_planting,Round & team context,"Contextual (round time, bomb status, map)",attacker
+attacker_side,Round & team context,"Contextual (round time, bomb status, map)",attacker
+bomb_planted,Round & team context,"Contextual (round time, bomb status, map)",shared
+clock_time_seconds,Round & team context,"Contextual (round time, bomb status, map)",shared
+ct_alive,Round & team context,"Contextual (round time, bomb status, map)",shared
+map_name,Round & team context,"Contextual (round time, bomb status, map)",shared
+start_time,Round & team context,"Contextual (round time, bomb status, map)",shared
+t_alive,Round & team context,"Contextual (round time, bomb status, map)",shared
+victim_alive_enemies,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_alive_teammates,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_bombzone,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_buyzone,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_defusing,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_has_bomb,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_planting,Round & team context,"Contextual (round time, bomb status, map)",victim
+victim_side,Round & team context,"Contextual (round time, bomb status, map)",victim
+attacker_average_enemy_distance,Spatial,Spatial,attacker
+attacker_average_enemy_distance_missing,Spatial,Spatial,attacker
+attacker_average_teammate_distance,Spatial,Spatial,attacker
+attacker_average_teammate_distance_missing,Spatial,Spatial,attacker
+attacker_closest_enemy,Spatial,Spatial,attacker
+attacker_closest_enemy_missing,Spatial,Spatial,attacker
+attacker_closest_teammate,Spatial,Spatial,attacker
+attacker_closest_teammate_missing,Spatial,Spatial,attacker
+attacker_view_x,Spatial,Spatial,attacker
+attacker_view_y,Spatial,Spatial,attacker
+attacker_x,Spatial,Spatial,attacker
+attacker_y,Spatial,Spatial,attacker
+attacker_z,Spatial,Spatial,attacker
+delta_x,Spatial,Spatial,shared
+delta_y,Spatial,Spatial,shared
+delta_z,Spatial,Spatial,shared
+engagement_distance,Spatial,Spatial,shared
+height_advantage,Spatial,Spatial,shared
+horizontal_angle_difference,Spatial,Spatial,shared
+vertical_angle_difference,Spatial,Spatial,shared
+victim_average_enemy_distance,Spatial,Spatial,victim
+victim_average_enemy_distance_missing,Spatial,Spatial,victim
+victim_average_teammate_distance,Spatial,Spatial,victim
+victim_average_teammate_distance_missing,Spatial,Spatial,victim
+victim_closest_enemy,Spatial,Spatial,victim
+victim_closest_enemy_missing,Spatial,Spatial,victim
+victim_closest_teammate,Spatial,Spatial,victim
+victim_closest_teammate_missing,Spatial,Spatial,victim
+victim_view_x,Spatial,Spatial,victim
+victim_view_y,Spatial,Spatial,victim
+victim_x,Spatial,Spatial,victim
+victim_y,Spatial,Spatial,victim
+victim_z,Spatial,Spatial,victim

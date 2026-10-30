@@ -1,0 +1,12 @@
+{
+  "best_params": {
+    "n_estimators": 500,
+    "max_depth": 9,
+    "learning_rate": 0.03,
+    "subsample": 0.6,
+    "colsample_bytree": 0.8
+  },
+  "best_score": 0.8274710980121532,
+  "primary_metric": "roc_auc_mean",
+  "fingerprint": "09d7daa1bc77f3c7"
+}

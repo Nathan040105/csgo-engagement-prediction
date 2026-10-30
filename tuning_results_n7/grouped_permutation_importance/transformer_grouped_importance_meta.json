@@ -1,0 +1,74 @@
+{
+  "model": "transformer",
+  "best_params_used": {
+    "d_token": 128,
+    "n_layers": 2,
+    "n_heads": 8,
+    "dropout": 0.1,
+    "learning_rate": 0.0003
+  },
+  "smoke_test": false,
+  "n_train_rows": 321180,
+  "n_test_rows": 81693,
+  "baseline_test": {
+    "accuracy": 0.6294786579021459,
+    "f1": 0.3580186864488621,
+    "precision": 0.4884579413337491,
+    "recall": 0.33625250291009245,
+    "roc_auc": 0.8183687991843563
+  },
+  "baseline_per_class_auc": {
+    "attacker_won": 0.8184621822005202,
+    "interrupted": 0.7905842492277595,
+    "mutual_kill": 0.6798819394265979,
+    "round_end": 0.9199552633906797,
+    "timedout": 0.8837090553158244,
+    "victim_won": 0.8176201055447558
+  },
+  "saved_held_out_roc_auc": 0.8183687991843563,
+  "saved_held_out_f1": 0.3580186864488621,
+  "difference_vs_saved_roc_auc": 0.0,
+  "reproduces_saved_result": true,
+  "repeats": 5,
+  "seed": 1000,
+  "n_jobs": 0,
+  "fit_seconds": 6447.086140871048,
+  "total_seconds": 13880.945605516434,
+  "versions": {
+    "python": "3.12.3",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "sklearn": "1.8.0",
+    "xgboost": "3.4.0",
+    "torch": "2.13.0+cu126"
+  },
+  "side_ablation": {
+    "columns_removed": [
+      "attacker_side",
+      "victim_side"
+    ],
+    "auc_with_sides": 0.8183687991843563,
+    "auc_without_sides": 0.8159994380568762,
+    "auc_change_when_removed": -0.0023693611274800963,
+    "f1_with_sides": 0.3580186864488621,
+    "f1_without_sides": 0.35807526509025944,
+    "accuracy_with_sides": 0.6294786579021459,
+    "accuracy_without_sides": 0.6284504180284725,
+    "per_class_auc_with_sides": {
+      "attacker_won": 0.8184621822005202,
+      "interrupted": 0.7905842492277595,
+      "mutual_kill": 0.6798819394265979,
+      "round_end": 0.9199552633906797,
+      "timedout": 0.8837090553158244,
+      "victim_won": 0.8176201055447558
+    },
+    "per_class_auc_without_sides": {
+      "attacker_won": 0.817117791717443,
+      "interrupted": 0.7898580189566834,
+      "mutual_kill": 0.6699934478831151,
+      "round_end": 0.9205924107118325,
+      "timedout": 0.8823384402206346,
+      "victim_won": 0.8160965188515485
+    }
+  }
+}

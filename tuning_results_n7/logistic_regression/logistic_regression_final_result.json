@@ -1,0 +1,8 @@
+{
+  "best_params": {
+    "C": 0.001
+  },
+  "best_score": 0.8034874247730993,
+  "primary_metric": "roc_auc_mean",
+  "fingerprint": "0e7c976259334348"
+}
