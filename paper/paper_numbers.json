@@ -1,0 +1,2369 @@
+{
+ "data": {
+  "n_engagements": 402873,
+  "n_matches": 1388,
+  "n_rounds": 36548,
+  "n_lan_matches": 602,
+  "n_online_matches": 786,
+  "engagements_per_map": {
+   "de_inferno": 89208,
+   "de_mirage": 77057,
+   "de_nuke": 73166,
+   "de_dust2": 56509,
+   "de_overpass": 52380,
+   "de_ancient": 40176,
+   "de_train": 14377
+  },
+  "matches_per_map": {
+   "de_inferno": 289,
+   "de_mirage": 278,
+   "de_nuke": 259,
+   "de_dust2": 197,
+   "de_overpass": 181,
+   "de_ancient": 132,
+   "de_train": 52
+  },
+  "class_counts": {
+   "attacker_won": 199401,
+   "interrupted": 105506,
+   "mutual_kill": 204,
+   "round_end": 2200,
+   "timedout": 56610,
+   "victim_won": 38952
+  },
+  "class_share_pct": {
+   "attacker_won": 49.49,
+   "interrupted": 26.19,
+   "mutual_kill": 0.05,
+   "round_end": 0.55,
+   "timedout": 14.05,
+   "victim_won": 9.67
+  },
+  "engagements_per_match": {
+   "count": 1388.0,
+   "mean": 290.3,
+   "std": 56.7,
+   "min": 44.0,
+   "25%": 255.0,
+   "50%": 287.0,
+   "75%": 318.0,
+   "max": 761.0
+  },
+  "engagements_per_round_mean": 11.02,
+  "lan_engagement_share_pct": 43.8,
+  "feature_frame_gap": {
+   "ticks_median": 33.0,
+   "ticks_p5_p95": [
+    4.0,
+    62.0
+   ],
+   "seconds_median": 0.2578125,
+   "seconds_p5_p95": [
+    0.03125,
+    0.4881889763779528
+   ],
+   "seconds_max": 1.0236220472440944,
+   "tick_rates": {
+    "128.0": 716,
+    "127.0": 672
+   }
+  }
+ },
+ "split": {
+  "n_trainval_rows": 321180,
+  "n_test_rows": 81693,
+  "n_trainval_matches": 1110,
+  "n_test_matches": 278,
+  "test_class_counts": {
+   "attacker_won": 40335,
+   "interrupted": 21464,
+   "mutual_kill": 40,
+   "round_end": 457,
+   "timedout": 11466,
+   "victim_won": 7931
+  },
+  "test_majority_accuracy": 0.4937387536263817,
+  "test_lan_matches": 121,
+  "mutual_kill_test_matches": 39
+ },
+ "test": {
+  "xgboost/before": {
+   "accuracy": 0.6343872792038485,
+   "f1_macro": 0.35839758955986484,
+   "precision_macro": 0.5073369061822803,
+   "recall_macro": 0.3373773949066839,
+   "roc_auc": 0.8199006497585318,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.657221,
+     "recall": 0.87517,
+     "f1": 0.750696,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.569727,
+     "recall": 0.46804,
+     "f1": 0.513901,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.677966,
+     "recall": 0.087527,
+     "f1": 0.155039,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.653291,
+     "recall": 0.489883,
+     "f1": 0.559908,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.485816,
+     "recall": 0.103644,
+     "f1": 0.170841,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.8219,
+    "interrupted": 0.7973,
+    "mutual_kill": 0.6632,
+    "round_end": 0.9308,
+    "timedout": 0.8863,
+    "victim_won": 0.8199
+   },
+   "confusion_matrix": [
+    [
+     35300,
+     3794,
+     0,
+     9,
+     782,
+     450
+    ],
+    [
+     9164,
+     10046,
+     0,
+     6,
+     1931,
+     317
+    ],
+    [
+     26,
+     10,
+     0,
+     0,
+     2,
+     2
+    ],
+    [
+     239,
+     103,
+     0,
+     40,
+     68,
+     7
+    ],
+    [
+     3181,
+     2571,
+     0,
+     3,
+     5617,
+     94
+    ],
+    [
+     5801,
+     1109,
+     0,
+     1,
+     198,
+     822
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 65.75,
+    "interrupted": 21.58,
+    "mutual_kill": 0.0,
+    "round_end": 0.07,
+    "timedout": 10.52,
+    "victim_won": 2.07
+   }
+  },
+  "xgboost/after": {
+   "accuracy": 0.6338486773652577,
+   "f1_macro": 0.35898786173751024,
+   "precision_macro": 0.5039210782652505,
+   "recall_macro": 0.33775560557012635,
+   "roc_auc": 0.8208735468548555,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.657229,
+     "recall": 0.874774,
+     "f1": 0.750556,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.568115,
+     "recall": 0.466688,
+     "f1": 0.512431,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.666667,
+     "recall": 0.091904,
+     "f1": 0.161538,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.65323,
+     "recall": 0.490406,
+     "f1": 0.560227,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.478286,
+     "recall": 0.102761,
+     "f1": 0.169175,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.8217,
+    "interrupted": 0.7969,
+    "mutual_kill": 0.6727,
+    "round_end": 0.9285,
+    "timedout": 0.886,
+    "victim_won": 0.8194
+   },
+   "confusion_matrix": [
+    [
+     35284,
+     3809,
+     0,
+     8,
+     762,
+     472
+    ],
+    [
+     9186,
+     10017,
+     0,
+     7,
+     1954,
+     300
+    ],
+    [
+     24,
+     11,
+     0,
+     0,
+     2,
+     3
+    ],
+    [
+     239,
+     104,
+     0,
+     42,
+     62,
+     10
+    ],
+    [
+     3152,
+     2581,
+     0,
+     6,
+     5623,
+     104
+    ],
+    [
+     5801,
+     1110,
+     0,
+     0,
+     205,
+     815
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 65.72,
+    "interrupted": 21.58,
+    "mutual_kill": 0.0,
+    "round_end": 0.08,
+    "timedout": 10.54,
+    "victim_won": 2.09
+   }
+  },
+  "transformer/before": {
+   "accuracy": 0.6294786579021459,
+   "f1_macro": 0.3580186864488621,
+   "precision_macro": 0.4884579413337491,
+   "recall_macro": 0.33625250291009245,
+   "roc_auc": 0.8183687991843563,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.659508,
+     "recall": 0.863369,
+     "f1": 0.747794,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.546261,
+     "recall": 0.493757,
+     "f1": 0.518683,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.577778,
+     "recall": 0.113786,
+     "f1": 0.190128,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.659864,
+     "recall": 0.456829,
+     "f1": 0.539889,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.487337,
+     "recall": 0.089774,
+     "f1": 0.151618,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.8185,
+    "interrupted": 0.7906,
+    "mutual_kill": 0.6799,
+    "round_end": 0.92,
+    "timedout": 0.8837,
+    "victim_won": 0.8176
+   },
+   "confusion_matrix": [
+    [
+     34824,
+     4440,
+     0,
+     10,
+     641,
+     420
+    ],
+    [
+     8826,
+     10598,
+     0,
+     15,
+     1794,
+     231
+    ],
+    [
+     22,
+     13,
+     0,
+     0,
+     2,
+     3
+    ],
+    [
+     227,
+     101,
+     0,
+     52,
+     70,
+     7
+    ],
+    [
+     3127,
+     3002,
+     0,
+     11,
+     5238,
+     88
+    ],
+    [
+     5777,
+     1247,
+     0,
+     2,
+     193,
+     712
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 64.64,
+    "interrupted": 23.75,
+    "mutual_kill": 0.0,
+    "round_end": 0.11,
+    "timedout": 9.72,
+    "victim_won": 1.79
+   }
+  },
+  "transformer/after": {
+   "accuracy": 0.6276547562214633,
+   "f1_macro": 0.35455738391820796,
+   "precision_macro": 0.4856458498140763,
+   "recall_macro": 0.33247792988239977,
+   "roc_auc": 0.8208813898064955,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.655955,
+     "recall": 0.868898,
+     "f1": 0.747558,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.545154,
+     "recall": 0.484579,
+     "f1": 0.513085,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.561798,
+     "recall": 0.109409,
+     "f1": 0.18315,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.664082,
+     "recall": 0.440694,
+     "f1": 0.529803,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.486886,
+     "recall": 0.091287,
+     "f1": 0.153748,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.8172,
+    "interrupted": 0.7893,
+    "mutual_kill": 0.6983,
+    "round_end": 0.9214,
+    "timedout": 0.8823,
+    "victim_won": 0.8169
+   },
+   "confusion_matrix": [
+    [
+     35047,
+     4194,
+     0,
+     11,
+     640,
+     443
+    ],
+    [
+     9166,
+     10401,
+     0,
+     15,
+     1651,
+     231
+    ],
+    [
+     24,
+     13,
+     0,
+     0,
+     1,
+     2
+    ],
+    [
+     222,
+     107,
+     0,
+     50,
+     70,
+     8
+    ],
+    [
+     3239,
+     3084,
+     0,
+     11,
+     5053,
+     79
+    ],
+    [
+     5731,
+     1280,
+     0,
+     2,
+     194,
+     724
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 65.4,
+    "interrupted": 23.35,
+    "mutual_kill": 0.0,
+    "round_end": 0.11,
+    "timedout": 9.31,
+    "victim_won": 1.82
+   }
+  },
+  "logistic_regression/before": {
+   "accuracy": 0.6030871678111955,
+   "f1_macro": 0.32913407695100644,
+   "precision_macro": 0.48595213207450966,
+   "recall_macro": 0.3112164408814467,
+   "roc_auc": 0.7921224492027205,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.638687,
+     "recall": 0.854543,
+     "f1": 0.731013,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.507953,
+     "recall": 0.428485,
+     "f1": 0.464847,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.711111,
+     "recall": 0.070022,
+     "f1": 0.12749,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.609007,
+     "recall": 0.422205,
+     "f1": 0.498687,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.448954,
+     "recall": 0.092044,
+     "f1": 0.152768,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.7907,
+    "interrupted": 0.75,
+    "mutual_kill": 0.658,
+    "round_end": 0.8955,
+    "timedout": 0.8506,
+    "victim_won": 0.808
+   },
+   "confusion_matrix": [
+    [
+     34468,
+     4526,
+     0,
+     3,
+     908,
+     430
+    ],
+    [
+     9945,
+     9197,
+     0,
+     7,
+     1953,
+     362
+    ],
+    [
+     22,
+     13,
+     0,
+     0,
+     2,
+     3
+    ],
+    [
+     262,
+     88,
+     0,
+     32,
+     65,
+     10
+    ],
+    [
+     3515,
+     3016,
+     0,
+     3,
+     4841,
+     91
+    ],
+    [
+     5755,
+     1266,
+     0,
+     0,
+     180,
+     730
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 66.06,
+    "interrupted": 22.16,
+    "mutual_kill": 0.0,
+    "round_end": 0.06,
+    "timedout": 9.73,
+    "victim_won": 1.99
+   }
+  },
+  "logistic_regression/after": {
+   "accuracy": 0.6014836032463001,
+   "f1_macro": 0.32651406810947414,
+   "precision_macro": 0.49168598063051355,
+   "recall_macro": 0.30886959239547757,
+   "roc_auc": 0.7922464145219575,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.637544,
+     "recall": 0.85608,
+     "f1": 0.730825,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.504545,
+     "recall": 0.424059,
+     "f1": 0.460814,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.756098,
+     "recall": 0.067834,
+     "f1": 0.124498,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.606656,
+     "recall": 0.414966,
+     "f1": 0.492827,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.445274,
+     "recall": 0.090279,
+     "f1": 0.150121,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.7895,
+    "interrupted": 0.7486,
+    "mutual_kill": 0.6629,
+    "round_end": 0.8958,
+    "timedout": 0.8492,
+    "victim_won": 0.8074
+   },
+   "confusion_matrix": [
+    [
+     34530,
+     4488,
+     0,
+     2,
+     876,
+     439
+    ],
+    [
+     10033,
+     9102,
+     0,
+     6,
+     1963,
+     360
+    ],
+    [
+     22,
+     14,
+     0,
+     0,
+     1,
+     3
+    ],
+    [
+     264,
+     87,
+     0,
+     31,
+     66,
+     9
+    ],
+    [
+     3550,
+     3075,
+     0,
+     2,
+     4758,
+     81
+    ],
+    [
+     5762,
+     1274,
+     0,
+     0,
+     179,
+     716
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 66.3,
+    "interrupted": 22.08,
+    "mutual_kill": 0.0,
+    "round_end": 0.05,
+    "timedout": 9.6,
+    "victim_won": 1.97
+   }
+  },
+  "random_forest/before": {
+   "accuracy": 0.6070287539936102,
+   "f1_macro": 0.298942879562412,
+   "precision_macro": 0.5414079604692777,
+   "recall_macro": 0.2904834897492738,
+   "roc_auc": 0.7909487160100833,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.609457,
+     "recall": 0.927309,
+     "f1": 0.735512,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.570247,
+     "recall": 0.34057,
+     "f1": 0.42645,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.833333,
+     "recall": 0.043764,
+     "f1": 0.08316,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.65257,
+     "recall": 0.406419,
+     "f1": 0.500887,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.58284,
+     "recall": 0.024839,
+     "f1": 0.047648,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.7991,
+    "interrupted": 0.7721,
+    "mutual_kill": 0.6244,
+    "round_end": 0.8894,
+    "timedout": 0.8581,
+    "victim_won": 0.8025
+   },
+   "confusion_matrix": [
+    [
+     37403,
+     2285,
+     0,
+     1,
+     589,
+     57
+    ],
+    [
+     12348,
+     7310,
+     0,
+     3,
+     1734,
+     69
+    ],
+    [
+     29,
+     9,
+     0,
+     0,
+     2,
+     0
+    ],
+    [
+     332,
+     74,
+     0,
+     20,
+     30,
+     1
+    ],
+    [
+     4426,
+     2366,
+     0,
+     0,
+     4660,
+     14
+    ],
+    [
+     6833,
+     775,
+     0,
+     0,
+     126,
+     197
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 75.12,
+    "interrupted": 15.69,
+    "mutual_kill": 0.0,
+    "round_end": 0.03,
+    "timedout": 8.74,
+    "victim_won": 0.41
+   }
+  },
+  "random_forest/after": {
+   "accuracy": 0.6070287539936102,
+   "f1_macro": 0.298942879562412,
+   "precision_macro": 0.5414079604692777,
+   "recall_macro": 0.2904834897492738,
+   "roc_auc": 0.7909487160100833,
+   "per_class": {
+    "attacker_won": {
+     "precision": 0.609457,
+     "recall": 0.927309,
+     "f1": 0.735512,
+     "support": 40335
+    },
+    "interrupted": {
+     "precision": 0.570247,
+     "recall": 0.34057,
+     "f1": 0.42645,
+     "support": 21464
+    },
+    "mutual_kill": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 40
+    },
+    "round_end": {
+     "precision": 0.833333,
+     "recall": 0.043764,
+     "f1": 0.08316,
+     "support": 457
+    },
+    "timedout": {
+     "precision": 0.65257,
+     "recall": 0.406419,
+     "f1": 0.500887,
+     "support": 11466
+    },
+    "victim_won": {
+     "precision": 0.58284,
+     "recall": 0.024839,
+     "f1": 0.047648,
+     "support": 7931
+    }
+   },
+   "per_class_auc": {
+    "attacker_won": 0.7991,
+    "interrupted": 0.7721,
+    "mutual_kill": 0.6244,
+    "round_end": 0.8894,
+    "timedout": 0.8581,
+    "victim_won": 0.8025
+   },
+   "confusion_matrix": [
+    [
+     37403,
+     2285,
+     0,
+     1,
+     589,
+     57
+    ],
+    [
+     12348,
+     7310,
+     0,
+     3,
+     1734,
+     69
+    ],
+    [
+     29,
+     9,
+     0,
+     0,
+     2,
+     0
+    ],
+    [
+     332,
+     74,
+     0,
+     20,
+     30,
+     1
+    ],
+    [
+     4426,
+     2366,
+     0,
+     0,
+     4660,
+     14
+    ],
+    [
+     6833,
+     775,
+     0,
+     0,
+     126,
+     197
+    ]
+   ],
+   "predicted_share_pct": {
+    "attacker_won": 75.12,
+    "interrupted": 15.69,
+    "mutual_kill": 0.0,
+    "round_end": 0.03,
+    "timedout": 8.74,
+    "victim_won": 0.41
+   }
+  }
+ },
+ "bootstrap": {
+  "n_resamples": 2000,
+  "seed": 2026,
+  "unit": "test match",
+  "xgboost/before": {
+   "ci95": [
+    0.80561,
+    0.83416
+   ],
+   "std": 0.0074
+  },
+  "xgboost/after": {
+   "ci95": [
+    0.80568,
+    0.83598
+   ],
+   "std": 0.0076
+  },
+  "transformer/before": {
+   "ci95": [
+    0.80476,
+    0.83265
+   ],
+   "std": 0.007
+  },
+  "transformer/after": {
+   "ci95": [
+    0.80697,
+    0.83454
+   ],
+   "std": 0.0071
+  },
+  "logistic_regression/before": {
+   "ci95": [
+    0.77853,
+    0.80553
+   ],
+   "std": 0.007
+  },
+  "logistic_regression/after": {
+   "ci95": [
+    0.77871,
+    0.80545
+   ],
+   "std": 0.0069
+  },
+  "random_forest/before": {
+   "ci95": [
+    0.77889,
+    0.80442
+   ],
+   "std": 0.0065
+  },
+  "random_forest/after": {
+   "ci95": [
+    0.77889,
+    0.80442
+   ],
+   "std": 0.0065
+  },
+  "diff/before/xgboost-transformer": {
+   "point": 0.00153,
+   "ci95": [
+    -0.01149,
+    0.01408
+   ],
+   "share_of_resamples_above_0": 0.604
+  },
+  "diff/before/xgboost-logistic_regression": {
+   "point": 0.02778,
+   "ci95": [
+    0.018,
+    0.03881
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/before/xgboost-random_forest": {
+   "point": 0.02895,
+   "ci95": [
+    0.01296,
+    0.044
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/before/transformer-logistic_regression": {
+   "point": 0.02625,
+   "ci95": [
+    0.01532,
+    0.03777
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/before/transformer-random_forest": {
+   "point": 0.02742,
+   "ci95": [
+    0.01294,
+    0.04189
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/before/logistic_regression-random_forest": {
+   "point": 0.00117,
+   "ci95": [
+    -0.01354,
+    0.01523
+   ],
+   "share_of_resamples_above_0": 0.5515
+  },
+  "diff/after/xgboost-transformer": {
+   "point": -1e-05,
+   "ci95": [
+    -0.01441,
+    0.01437
+   ],
+   "share_of_resamples_above_0": 0.509
+  },
+  "diff/after/xgboost-logistic_regression": {
+   "point": 0.02863,
+   "ci95": [
+    0.01701,
+    0.04151
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/after/xgboost-random_forest": {
+   "point": 0.02992,
+   "ci95": [
+    0.01308,
+    0.04635
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/after/transformer-logistic_regression": {
+   "point": 0.02863,
+   "ci95": [
+    0.01818,
+    0.04043
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/after/transformer-random_forest": {
+   "point": 0.02993,
+   "ci95": [
+    0.0158,
+    0.04359
+   ],
+   "share_of_resamples_above_0": 1.0
+  },
+  "diff/after/logistic_regression-random_forest": {
+   "point": 0.0013,
+   "ci95": [
+    -0.01352,
+    0.01599
+   ],
+   "share_of_resamples_above_0": 0.56
+  },
+  "diff/after-before/xgboost": {
+   "point": 0.00097,
+   "ci95": [
+    -0.00421,
+    0.00722
+   ]
+  },
+  "diff/after-before/transformer": {
+   "point": 0.00251,
+   "ci95": [
+    -0.00511,
+    0.00992
+   ]
+  },
+  "diff/after-before/logistic_regression": {
+   "point": 0.00012,
+   "ci95": [
+    -0.00281,
+    0.00333
+   ]
+  },
+  "diff/after-before/random_forest": {
+   "point": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "elimination_paired_accuracy": {
+  "xgboost": {
+   "mean_change": -0.0006,
+   "ci95_normal": [
+    -0.0019,
+    0.0007
+   ],
+   "share_predictions_changed_pct": 4.6
+  },
+  "transformer": {
+   "mean_change": -0.0016,
+   "ci95_normal": [
+    -0.0036,
+    0.0005
+   ],
+   "share_predictions_changed_pct": 9.1
+  },
+  "logistic_regression": {
+   "mean_change": -0.0015,
+   "ci95_normal": [
+    -0.0028,
+    -0.0002
+   ],
+   "share_predictions_changed_pct": 3.8
+  },
+  "random_forest": {
+   "mean_change": 0.0,
+   "ci95_normal": [
+    0.0,
+    0.0
+   ],
+   "share_predictions_changed_pct": 0.0
+  }
+ },
+ "sweep": {
+  "xgboost": {
+   "n_combinations": 1350,
+   "best_params": {
+    "n_estimators": 500,
+    "max_depth": 9,
+    "learning_rate": 0.03,
+    "subsample": 0.6,
+    "colsample_bytree": 0.8
+   },
+   "val_roc_auc_mean": 0.8274710980121532,
+   "val_roc_auc_std": 0.0093351255743334,
+   "val_accuracy_mean": 0.6356757081232259,
+   "val_f1_mean": 0.362554853541813,
+   "n_valid_splits": 7,
+   "val_roc_auc_range_over_grid": [
+    0.7582888280456862,
+    0.8274710980121532
+   ]
+  },
+  "transformer": {
+   "n_combinations": 6,
+   "best_params": {
+    "d_token": 128,
+    "n_layers": 2,
+    "n_heads": 8,
+    "dropout": 0.1,
+    "learning_rate": 0.0003
+   },
+   "val_roc_auc_mean": 0.8254680646979841,
+   "val_roc_auc_std": 0.0068127486601464,
+   "val_accuracy_mean": 0.6304175966185721,
+   "val_f1_mean": 0.3543182345303502,
+   "n_valid_splits": 7,
+   "val_roc_auc_range_over_grid": [
+    0.8152158019599594,
+    0.8254680646979841
+   ]
+  },
+  "logistic_regression": {
+   "n_combinations": 6,
+   "best_params": {
+    "C": 0.001
+   },
+   "val_roc_auc_mean": 0.8034874247730993,
+   "val_roc_auc_std": 0.0078592919409934,
+   "val_accuracy_mean": 0.6054278218296745,
+   "val_f1_mean": 0.3294374557629702,
+   "n_valid_splits": 7,
+   "val_roc_auc_range_over_grid": [
+    0.7932927368691641,
+    0.8034874247730993
+   ]
+  },
+  "random_forest": {
+   "n_combinations": 600,
+   "best_params": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "max_features": "sqrt"
+   },
+   "val_roc_auc_mean": 0.8021959849789226,
+   "val_roc_auc_std": 0.0092617457352925,
+   "val_accuracy_mean": 0.6088479576112241,
+   "val_f1_mean": 0.3011006588274828,
+   "n_valid_splits": 7,
+   "val_roc_auc_range_over_grid": [
+    0.6468237172310491,
+    0.8021959849789226
+   ]
+  }
+ },
+ "elimination": {
+  "xgboost": {
+   "n_before": 159,
+   "n_after": 89,
+   "n_eliminated": 70,
+   "val_selected": 0.8294397635071638,
+   "val_best_seen": 0.8294397635071638,
+   "test_before": {
+    "accuracy": 0.6343872792038485,
+    "f1": 0.35839758955986484,
+    "precision": 0.5073369061822803,
+    "recall": 0.3373773949066839,
+    "roc_auc": 0.8199006497585318
+   },
+   "test_after": {
+    "accuracy": 0.6338486773652577,
+    "f1": 0.35898786173751024,
+    "precision": 0.5039210782652505,
+    "recall": 0.33775560557012635,
+    "roc_auc": 0.8208735468548555
+   },
+   "curve": {
+    "step": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "n_features": [
+     159,
+     119,
+     89,
+     66
+    ],
+    "performance": [
+     0.82747,
+     0.82817,
+     0.82944,
+     0.82647
+    ],
+    "roc_auc_std": [
+     0.00934,
+     0.01142,
+     0.01081,
+     0.01058
+    ]
+   },
+   "settings": {
+    "drop_fraction": 0.25,
+    "n_repeats": 7,
+    "importance_n_repeats": 3,
+    "permutation_repeats": 2,
+    "tolerance": 0.002,
+    "selection": "best",
+    "min_features": 5,
+    "importance_scoring": "roc_auc_ovr"
+   },
+   "first_dropped": [
+    "victim_cash",
+    "victim_inventory_size",
+    "victim_callout",
+    "utility_difference",
+    "victim_total_utility",
+    "vertical_angle_difference",
+    "is_lan",
+    "victim_smokes",
+    "attacker_exposed",
+    "victim_has_flash",
+    "attacker_has_flash",
+    "victim_incendiaries"
+   ]
+  },
+  "transformer": {
+   "n_before": 159,
+   "n_after": 111,
+   "n_eliminated": 48,
+   "val_selected": 0.8306219368665335,
+   "val_best_seen": 0.8306219368665335,
+   "test_before": {
+    "accuracy": 0.6294786579021459,
+    "f1": 0.3580186864488621,
+    "precision": 0.4884579413337491,
+    "recall": 0.33625250291009245,
+    "roc_auc": 0.8183687991843563
+   },
+   "test_after": {
+    "accuracy": 0.6276547562214633,
+    "f1": 0.35455738391820796,
+    "precision": 0.4856458498140763,
+    "recall": 0.33247792988239977,
+    "roc_auc": 0.8208813898064955
+   },
+   "curve": {
+    "step": [
+     1,
+     2,
+     3
+    ],
+    "n_features": [
+     159,
+     111,
+     77
+    ],
+    "performance": [
+     0.82564,
+     0.83062,
+     0.8279
+    ],
+    "roc_auc_std": [
+     0.00797,
+     0.00487,
+     0.00694
+    ]
+   },
+   "settings": {
+    "drop_fraction": 0.3,
+    "n_repeats": 3,
+    "importance_n_repeats": 1,
+    "permutation_repeats": 1,
+    "tolerance": 0.002,
+    "selection": "best",
+    "min_features": 5,
+    "importance_scoring": "roc_auc_ovr"
+   },
+   "first_dropped": [
+    "attacker_average_teammate_distance",
+    "attacker_reloading",
+    "victim_secondary_weapon",
+    "delta_z",
+    "armor_difference",
+    "attacker_buyzone",
+    "victim_ducking",
+    "victim_smokes",
+    "victim_decoys",
+    "victim_buyzone",
+    "victim_x",
+    "victim_has_smoke"
+   ]
+  },
+  "logistic_regression": {
+   "n_before": 549,
+   "n_after": 308,
+   "n_eliminated": 241,
+   "val_selected": 0.8092255389509332,
+   "val_best_seen": 0.8092255389509332,
+   "test_before": {
+    "accuracy": 0.6030871678111955,
+    "f1": 0.32913407695100644,
+    "precision": 0.48595213207450966,
+    "recall": 0.3112164408814467,
+    "roc_auc": 0.7921224492027205
+   },
+   "test_after": {
+    "accuracy": 0.6014836032463001,
+    "f1": 0.32651406810947414,
+    "precision": 0.49168598063051355,
+    "recall": 0.30886959239547757,
+    "roc_auc": 0.7922464145219575
+   },
+   "curve": {
+    "step": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "n_features": [
+     549,
+     411,
+     308,
+     231,
+     173,
+     129
+    ],
+    "performance": [
+     0.80349,
+     0.80876,
+     0.80923,
+     0.80791,
+     0.80727,
+     0.80436
+    ],
+    "roc_auc_std": [
+     0.00786,
+     0.00804,
+     0.008,
+     0.00841,
+     0.00817,
+     0.00896
+    ]
+   },
+   "settings": {
+    "drop_fraction": 0.25,
+    "n_repeats": 7,
+    "importance_n_repeats": 3,
+    "permutation_repeats": 2,
+    "tolerance": 0.002,
+    "selection": "best",
+    "min_features": 5,
+    "importance_scoring": "roc_auc_ovr"
+   },
+   "first_dropped": [
+    "victim_has_zeus",
+    "attacker_callout_Hole",
+    "victim_planting",
+    "attacker_callout_Graveyard",
+    "victim_secondary_weapon_P250",
+    "victim_callout_TopofMid",
+    "attacker_bombzone",
+    "attacker_callout_Outside",
+    "victim_callout_BDoors",
+    "attacker_callout_Admin",
+    "attacker_callout_LadderTop",
+    "victim_callout_Hut"
+   ]
+  },
+  "random_forest": {
+   "n_before": 159,
+   "n_after": 159,
+   "n_eliminated": 0,
+   "val_selected": 0.8021959849789226,
+   "val_best_seen": 0.8021959849789226,
+   "test_before": {
+    "accuracy": 0.6070287539936102,
+    "f1": 0.298942879562412,
+    "precision": 0.5414079604692777,
+    "recall": 0.2904834897492738,
+    "roc_auc": 0.7909487160100833
+   },
+   "test_after": {
+    "accuracy": 0.6070287539936102,
+    "f1": 0.298942879562412,
+    "precision": 0.5414079604692777,
+    "recall": 0.2904834897492738,
+    "roc_auc": 0.7909487160100833
+   },
+   "curve": {
+    "step": [
+     1,
+     2
+    ],
+    "n_features": [
+     159,
+     119
+    ],
+    "performance": [
+     0.8022,
+     0.79884
+    ],
+    "roc_auc_std": [
+     0.00926,
+     0.00789
+    ]
+   },
+   "settings": {
+    "drop_fraction": 0.25,
+    "n_repeats": 7,
+    "importance_n_repeats": 2,
+    "permutation_repeats": 2,
+    "tolerance": 0.002,
+    "selection": "best",
+    "min_features": 5,
+    "importance_scoring": "roc_auc_ovr"
+   },
+   "first_dropped": []
+  }
+ },
+ "removed_features": {
+  "n_rows": 80,
+  "by_removed_by": {
+   "both": 38,
+   "xgboost only": 32,
+   "transformer only": 10
+  },
+  "by_reason_both": {
+   "near-constant (>=99% one value)": 15,
+   "near-duplicate of another feature (|r|>=0.9)": 13,
+   "varies, but adds nothing beyond other features": 10
+  },
+  "by_reason_all": {
+   "near-duplicate of another feature (|r|>=0.9)": 32,
+   "varies, but adds nothing beyond other features": 29,
+   "near-constant (>=99% one value)": 19
+  }
+ },
+ "grouped_importance": {
+  "xgboost/Spatial": {
+   "auc_drop": 0.0937,
+   "std": 0.0037,
+   "pct_above_chance_lost": 29.3,
+   "n_features": 33,
+   "n_columns": 33
+  },
+  "xgboost/Movement": {
+   "auc_drop": 0.0072,
+   "std": 0.0017,
+   "pct_above_chance_lost": 2.3,
+   "n_features": 11,
+   "n_columns": 11
+  },
+  "xgboost/Combat state": {
+   "auc_drop": 0.0722,
+   "std": 0.006,
+   "pct_above_chance_lost": 22.6,
+   "n_features": 32,
+   "n_columns": 32
+  },
+  "xgboost/Economy & utility": {
+   "auc_drop": 0.0255,
+   "std": 0.0033,
+   "pct_above_chance_lost": 8.0,
+   "n_features": 40,
+   "n_columns": 40
+  },
+  "xgboost/Round & team context": {
+   "auc_drop": 0.0407,
+   "std": 0.0026,
+   "pct_above_chance_lost": 12.7,
+   "n_features": 23,
+   "n_columns": 23
+  },
+  "xgboost/Map geometry (nav mesh)": {
+   "auc_drop": 0.0164,
+   "std": 0.0015,
+   "pct_above_chance_lost": 5.1,
+   "n_features": 15,
+   "n_columns": 15
+  },
+  "xgboost/Connection / other": {
+   "auc_drop": -0.0,
+   "std": 0.0003,
+   "pct_above_chance_lost": -0.0,
+   "n_features": 5,
+   "n_columns": 5
+  },
+  "xgboost/attacker_side alone": {
+   "auc_drop": 0.0004,
+   "std": 0.0001,
+   "pct_above_chance_lost": 0.1,
+   "n_features": 1,
+   "n_columns": 1
+  },
+  "xgboost/victim_side alone": {
+   "auc_drop": 0.0004,
+   "std": 0.0003,
+   "pct_above_chance_lost": 0.1,
+   "n_features": 1,
+   "n_columns": 1
+  },
+  "xgboost/attacker_side + victim_side together": {
+   "auc_drop": 0.0001,
+   "std": 0.0002,
+   "pct_above_chance_lost": 0.0,
+   "n_features": 2,
+   "n_columns": 2
+  },
+  "xgboost/ALL features (sanity floor)": {
+   "auc_drop": 0.3175,
+   "std": 0.0064,
+   "pct_above_chance_lost": 99.2,
+   "n_features": 159,
+   "n_columns": 159
+  },
+  "transformer/Spatial": {
+   "auc_drop": 0.082,
+   "std": 0.0027,
+   "pct_above_chance_lost": 25.7,
+   "n_features": 33,
+   "n_columns": 33
+  },
+  "transformer/Movement": {
+   "auc_drop": 0.0095,
+   "std": 0.0006,
+   "pct_above_chance_lost": 3.0,
+   "n_features": 11,
+   "n_columns": 11
+  },
+  "transformer/Combat state": {
+   "auc_drop": 0.1045,
+   "std": 0.0066,
+   "pct_above_chance_lost": 32.8,
+   "n_features": 32,
+   "n_columns": 32
+  },
+  "transformer/Economy & utility": {
+   "auc_drop": 0.015,
+   "std": 0.0015,
+   "pct_above_chance_lost": 4.7,
+   "n_features": 40,
+   "n_columns": 40
+  },
+  "transformer/Round & team context": {
+   "auc_drop": 0.0546,
+   "std": 0.0016,
+   "pct_above_chance_lost": 17.1,
+   "n_features": 23,
+   "n_columns": 23
+  },
+  "transformer/Map geometry (nav mesh)": {
+   "auc_drop": 0.0282,
+   "std": 0.0017,
+   "pct_above_chance_lost": 8.9,
+   "n_features": 15,
+   "n_columns": 15
+  },
+  "transformer/Connection / other": {
+   "auc_drop": -0.0,
+   "std": 0.0002,
+   "pct_above_chance_lost": -0.0,
+   "n_features": 5,
+   "n_columns": 5
+  },
+  "transformer/attacker_side alone": {
+   "auc_drop": 0.0752,
+   "std": 0.0064,
+   "pct_above_chance_lost": 23.6,
+   "n_features": 1,
+   "n_columns": 1
+  },
+  "transformer/victim_side alone": {
+   "auc_drop": 0.064,
+   "std": 0.0064,
+   "pct_above_chance_lost": 20.1,
+   "n_features": 1,
+   "n_columns": 1
+  },
+  "transformer/attacker_side + victim_side together": {
+   "auc_drop": 0.0126,
+   "std": 0.0009,
+   "pct_above_chance_lost": 4.0,
+   "n_features": 2,
+   "n_columns": 2
+  },
+  "transformer/ALL features (sanity floor)": {
+   "auc_drop": 0.316,
+   "std": 0.0024,
+   "pct_above_chance_lost": 99.3,
+   "n_features": 159,
+   "n_columns": 159
+  },
+  "random_forest/Spatial": {
+   "auc_drop": 0.0763,
+   "std": 0.002,
+   "pct_above_chance_lost": 26.2,
+   "n_features": 33,
+   "n_columns": 33
+  },
+  "random_forest/Movement": {
+   "auc_drop": 0.0079,
+   "std": 0.0009,
+   "pct_above_chance_lost": 2.7,
+   "n_features": 11,
+   "n_columns": 11
+  },
+  "random_forest/Combat state": {
+   "auc_drop": 0.0697,
+   "std": 0.0043,
+   "pct_above_chance_lost": 24.0,
+   "n_features": 32,
+   "n_columns": 32
+  },
+  "random_forest/Economy & utility": {
+   "auc_drop": 0.0119,
+   "std": 0.0029,
+   "pct_above_chance_lost": 4.1,
+   "n_features": 40,
+   "n_columns": 40
+  },
+  "random_forest/Round & team context": {
+   "auc_drop": 0.0474,
+   "std": 0.0043,
+   "pct_above_chance_lost": 16.3,
+   "n_features": 23,
+   "n_columns": 23
+  },
+  "random_forest/Map geometry (nav mesh)": {
+   "auc_drop": 0.0175,
+   "std": 0.0029,
+   "pct_above_chance_lost": 6.0,
+   "n_features": 15,
+   "n_columns": 15
+  },
+  "random_forest/Connection / other": {
+   "auc_drop": -0.0001,
+   "std": 0.0006,
+   "pct_above_chance_lost": -0.0,
+   "n_features": 5,
+   "n_columns": 5
+  },
+  "random_forest/attacker_side alone": {
+   "auc_drop": 0.0005,
+   "std": 0.0002,
+   "pct_above_chance_lost": 0.2,
+   "n_features": 1,
+   "n_columns": 1
+  },
+  "random_forest/victim_side alone": {
+   "auc_drop": 0.0003,
+   "std": 0.0004,
+   "pct_above_chance_lost": 0.1,
+   "n_features": 1,
+   "n_columns": 1
+  },
+  "random_forest/attacker_side + victim_side together": {
+   "auc_drop": 0.0008,
+   "std": 0.0003,
+   "pct_above_chance_lost": 0.3,
+   "n_features": 2,
+   "n_columns": 2
+  },
+  "random_forest/ALL features (sanity floor)": {
+   "auc_drop": 0.2857,
+   "std": 0.0063,
+   "pct_above_chance_lost": 98.2,
+   "n_features": 159,
+   "n_columns": 159
+  },
+  "logistic_regression/Spatial": {
+   "auc_drop": 0.0727,
+   "std": 0.0024,
+   "pct_above_chance_lost": 24.9,
+   "n_features": 33,
+   "n_columns": 33
+  },
+  "logistic_regression/Movement": {
+   "auc_drop": 0.0048,
+   "std": 0.0009,
+   "pct_above_chance_lost": 1.7,
+   "n_features": 11,
+   "n_columns": 11
+  },
+  "logistic_regression/Combat state": {
+   "auc_drop": 0.0996,
+   "std": 0.0059,
+   "pct_above_chance_lost": 34.1,
+   "n_features": 32,
+   "n_columns": 194
+  },
+  "logistic_regression/Economy & utility": {
+   "auc_drop": 0.0219,
+   "std": 0.0029,
+   "pct_above_chance_lost": 7.5,
+   "n_features": 40,
+   "n_columns": 40
+  },
+  "logistic_regression/Round & team context": {
+   "auc_drop": 0.0414,
+   "std": 0.0025,
+   "pct_above_chance_lost": 14.2,
+   "n_features": 23,
+   "n_columns": 31
+  },
+  "logistic_regression/Map geometry (nav mesh)": {
+   "auc_drop": 0.0085,
+   "std": 0.0033,
+   "pct_above_chance_lost": 2.9,
+   "n_features": 15,
+   "n_columns": 235
+  },
+  "logistic_regression/Connection / other": {
+   "auc_drop": -0.0002,
+   "std": 0.0003,
+   "pct_above_chance_lost": -0.1,
+   "n_features": 5,
+   "n_columns": 5
+  },
+  "logistic_regression/attacker_side alone": {
+   "auc_drop": 0.0032,
+   "std": 0.0009,
+   "pct_above_chance_lost": 1.1,
+   "n_features": 1,
+   "n_columns": 2
+  },
+  "logistic_regression/victim_side alone": {
+   "auc_drop": 0.0025,
+   "std": 0.0006,
+   "pct_above_chance_lost": 0.9,
+   "n_features": 1,
+   "n_columns": 2
+  },
+  "logistic_regression/attacker_side + victim_side together": {
+   "auc_drop": 0.0006,
+   "std": 0.0005,
+   "pct_above_chance_lost": 0.2,
+   "n_features": 2,
+   "n_columns": 4
+  },
+  "logistic_regression/ALL features (sanity floor)": {
+   "auc_drop": 0.287,
+   "std": 0.0032,
+   "pct_above_chance_lost": 98.3,
+   "n_features": 159,
+   "n_columns": 549
+  }
+ },
+ "side_ablation": {
+  "xgboost": {
+   "auc_with_sides": 0.8199006497585318,
+   "auc_without_sides": 0.8246622204923333,
+   "auc_change_when_removed": 0.004761570733801457,
+   "reproduces_saved": true
+  },
+  "transformer": {
+   "auc_with_sides": 0.8183687991843563,
+   "auc_without_sides": 0.8159994380568762,
+   "auc_change_when_removed": -0.0023693611274800963,
+   "reproduces_saved": true
+  },
+  "logistic_regression": {
+   "auc_with_sides": 0.7921224492027205,
+   "auc_without_sides": 0.7920998383856462,
+   "auc_change_when_removed": -2.261081707422008e-05,
+   "reproduces_saved": true
+  },
+  "random_forest": {
+   "auc_with_sides": 0.7909487160100833,
+   "auc_without_sides": 0.7909311680372402,
+   "auc_change_when_removed": -1.754797284314602e-05,
+   "reproduces_saved": true
+  }
+ },
+ "accuracy_over_time_summary": [
+  {
+   "window_pct": 10.0,
+   "model": "xgboost",
+   "variant": "before",
+   "overall_accuracy": 0.6344,
+   "mean_accuracy_first_20pct": 0.6093,
+   "mean_accuracy_last_20pct": 0.648,
+   "mean_across_match_std": 0.0949,
+   "mean_expected_sampling_std": 0.0921,
+   "mean_est_between_match_std": 0.0212
+  },
+  {
+   "window_pct": 10.0,
+   "model": "xgboost",
+   "variant": "after",
+   "overall_accuracy": 0.6338,
+   "mean_accuracy_first_20pct": 0.6097,
+   "mean_accuracy_last_20pct": 0.6483,
+   "mean_across_match_std": 0.0957,
+   "mean_expected_sampling_std": 0.0921,
+   "mean_est_between_match_std": 0.0227
+  },
+  {
+   "window_pct": 10.0,
+   "model": "transformer",
+   "variant": "before",
+   "overall_accuracy": 0.6295,
+   "mean_accuracy_first_20pct": 0.6054,
+   "mean_accuracy_last_20pct": 0.6431,
+   "mean_across_match_std": 0.0944,
+   "mean_expected_sampling_std": 0.0923,
+   "mean_est_between_match_std": 0.0187
+  },
+  {
+   "window_pct": 10.0,
+   "model": "transformer",
+   "variant": "after",
+   "overall_accuracy": 0.6277,
+   "mean_accuracy_first_20pct": 0.6031,
+   "mean_accuracy_last_20pct": 0.643,
+   "mean_across_match_std": 0.0944,
+   "mean_expected_sampling_std": 0.0924,
+   "mean_est_between_match_std": 0.0172
+  },
+  {
+   "window_pct": 10.0,
+   "model": "random_forest",
+   "variant": "before",
+   "overall_accuracy": 0.607,
+   "mean_accuracy_first_20pct": 0.5826,
+   "mean_accuracy_last_20pct": 0.6192,
+   "mean_across_match_std": 0.0997,
+   "mean_expected_sampling_std": 0.0933,
+   "mean_est_between_match_std": 0.0332
+  },
+  {
+   "window_pct": 10.0,
+   "model": "random_forest",
+   "variant": "after",
+   "overall_accuracy": 0.607,
+   "mean_accuracy_first_20pct": 0.5826,
+   "mean_accuracy_last_20pct": 0.6192,
+   "mean_across_match_std": 0.0997,
+   "mean_expected_sampling_std": 0.0933,
+   "mean_est_between_match_std": 0.0332
+  },
+  {
+   "window_pct": 10.0,
+   "model": "logistic_regression",
+   "variant": "before",
+   "overall_accuracy": 0.6031,
+   "mean_accuracy_first_20pct": 0.5767,
+   "mean_accuracy_last_20pct": 0.6186,
+   "mean_across_match_std": 0.0991,
+   "mean_expected_sampling_std": 0.0935,
+   "mean_est_between_match_std": 0.0296
+  },
+  {
+   "window_pct": 10.0,
+   "model": "logistic_regression",
+   "variant": "after",
+   "overall_accuracy": 0.6015,
+   "mean_accuracy_first_20pct": 0.5744,
+   "mean_accuracy_last_20pct": 0.6166,
+   "mean_across_match_std": 0.0993,
+   "mean_expected_sampling_std": 0.0935,
+   "mean_est_between_match_std": 0.0309
+  },
+  {
+   "window_pct": 20.0,
+   "model": "xgboost",
+   "variant": "before",
+   "overall_accuracy": 0.6344,
+   "mean_accuracy_first_20pct": 0.6162,
+   "mean_accuracy_last_20pct": 0.647,
+   "mean_across_match_std": 0.0685,
+   "mean_expected_sampling_std": 0.0661,
+   "mean_est_between_match_std": 0.0156
+  },
+  {
+   "window_pct": 20.0,
+   "model": "xgboost",
+   "variant": "after",
+   "overall_accuracy": 0.6338,
+   "mean_accuracy_first_20pct": 0.6159,
+   "mean_accuracy_last_20pct": 0.6473,
+   "mean_across_match_std": 0.069,
+   "mean_expected_sampling_std": 0.0661,
+   "mean_est_between_match_std": 0.017
+  },
+  {
+   "window_pct": 20.0,
+   "model": "transformer",
+   "variant": "before",
+   "overall_accuracy": 0.6295,
+   "mean_accuracy_first_20pct": 0.6112,
+   "mean_accuracy_last_20pct": 0.6419,
+   "mean_across_match_std": 0.0678,
+   "mean_expected_sampling_std": 0.0663,
+   "mean_est_between_match_std": 0.0138
+  },
+  {
+   "window_pct": 20.0,
+   "model": "transformer",
+   "variant": "after",
+   "overall_accuracy": 0.6277,
+   "mean_accuracy_first_20pct": 0.6092,
+   "mean_accuracy_last_20pct": 0.6417,
+   "mean_across_match_std": 0.0679,
+   "mean_expected_sampling_std": 0.0664,
+   "mean_est_between_match_std": 0.0133
+  },
+  {
+   "window_pct": 20.0,
+   "model": "random_forest",
+   "variant": "before",
+   "overall_accuracy": 0.607,
+   "mean_accuracy_first_20pct": 0.5874,
+   "mean_accuracy_last_20pct": 0.6175,
+   "mean_across_match_std": 0.0719,
+   "mean_expected_sampling_std": 0.067,
+   "mean_est_between_match_std": 0.0243
+  },
+  {
+   "window_pct": 20.0,
+   "model": "random_forest",
+   "variant": "after",
+   "overall_accuracy": 0.607,
+   "mean_accuracy_first_20pct": 0.5874,
+   "mean_accuracy_last_20pct": 0.6175,
+   "mean_across_match_std": 0.0719,
+   "mean_expected_sampling_std": 0.067,
+   "mean_est_between_match_std": 0.0243
+  },
+  {
+   "window_pct": 20.0,
+   "model": "logistic_regression",
+   "variant": "before",
+   "overall_accuracy": 0.6031,
+   "mean_accuracy_first_20pct": 0.5824,
+   "mean_accuracy_last_20pct": 0.6167,
+   "mean_across_match_std": 0.0714,
+   "mean_expected_sampling_std": 0.0672,
+   "mean_est_between_match_std": 0.0221
+  },
+  {
+   "window_pct": 20.0,
+   "model": "logistic_regression",
+   "variant": "after",
+   "overall_accuracy": 0.6015,
+   "mean_accuracy_first_20pct": 0.5802,
+   "mean_accuracy_last_20pct": 0.6149,
+   "mean_across_match_std": 0.0716,
+   "mean_expected_sampling_std": 0.0672,
+   "mean_est_between_match_std": 0.0226
+  },
+  {
+   "window_pct": 30.0,
+   "model": "xgboost",
+   "variant": "before",
+   "overall_accuracy": 0.6344,
+   "mean_accuracy_first_20pct": 0.62,
+   "mean_accuracy_last_20pct": 0.6454,
+   "mean_across_match_std": 0.057,
+   "mean_expected_sampling_std": 0.0548,
+   "mean_est_between_match_std": 0.0138
+  },
+  {
+   "window_pct": 30.0,
+   "model": "xgboost",
+   "variant": "after",
+   "overall_accuracy": 0.6338,
+   "mean_accuracy_first_20pct": 0.6195,
+   "mean_accuracy_last_20pct": 0.6458,
+   "mean_across_match_std": 0.0576,
+   "mean_expected_sampling_std": 0.0548,
+   "mean_est_between_match_std": 0.0158
+  },
+  {
+   "window_pct": 30.0,
+   "model": "transformer",
+   "variant": "before",
+   "overall_accuracy": 0.6295,
+   "mean_accuracy_first_20pct": 0.615,
+   "mean_accuracy_last_20pct": 0.6402,
+   "mean_across_match_std": 0.0567,
+   "mean_expected_sampling_std": 0.055,
+   "mean_est_between_match_std": 0.0129
+  },
+  {
+   "window_pct": 30.0,
+   "model": "transformer",
+   "variant": "after",
+   "overall_accuracy": 0.6277,
+   "mean_accuracy_first_20pct": 0.6127,
+   "mean_accuracy_last_20pct": 0.6399,
+   "mean_across_match_std": 0.0567,
+   "mean_expected_sampling_std": 0.055,
+   "mean_est_between_match_std": 0.0129
+  },
+  {
+   "window_pct": 30.0,
+   "model": "random_forest",
+   "variant": "before",
+   "overall_accuracy": 0.607,
+   "mean_accuracy_first_20pct": 0.5917,
+   "mean_accuracy_last_20pct": 0.6159,
+   "mean_across_match_std": 0.06,
+   "mean_expected_sampling_std": 0.0556,
+   "mean_est_between_match_std": 0.0216
+  },
+  {
+   "window_pct": 30.0,
+   "model": "random_forest",
+   "variant": "after",
+   "overall_accuracy": 0.607,
+   "mean_accuracy_first_20pct": 0.5917,
+   "mean_accuracy_last_20pct": 0.6159,
+   "mean_across_match_std": 0.06,
+   "mean_expected_sampling_std": 0.0556,
+   "mean_est_between_match_std": 0.0216
+  },
+  {
+   "window_pct": 30.0,
+   "model": "logistic_regression",
+   "variant": "before",
+   "overall_accuracy": 0.6031,
+   "mean_accuracy_first_20pct": 0.5861,
+   "mean_accuracy_last_20pct": 0.6151,
+   "mean_across_match_std": 0.0592,
+   "mean_expected_sampling_std": 0.0557,
+   "mean_est_between_match_std": 0.0188
+  },
+  {
+   "window_pct": 30.0,
+   "model": "logistic_regression",
+   "variant": "after",
+   "overall_accuracy": 0.6015,
+   "mean_accuracy_first_20pct": 0.584,
+   "mean_accuracy_last_20pct": 0.6134,
+   "mean_across_match_std": 0.0595,
+   "mean_expected_sampling_std": 0.0557,
+   "mean_est_between_match_std": 0.0196
+  }
+ ],
+ "accuracy_over_time_20": {
+  "logistic_regression/after": {
+   "0.0": 0.5512,
+   "5.0": 0.5697,
+   "10.0": 0.5781,
+   "15.0": 0.5953,
+   "20.0": 0.6067,
+   "25.0": 0.6086,
+   "30.0": 0.6098,
+   "35.0": 0.6149,
+   "40.0": 0.6121,
+   "45.0": 0.6055,
+   "50.0": 0.6072,
+   "55.0": 0.6017,
+   "60.0": 0.5959,
+   "65.0": 0.5988,
+   "70.0": 0.5943,
+   "75.0": 0.6008,
+   "80.0": 0.6065,
+   "85.0": 0.611,
+   "90.0": 0.618,
+   "95.0": 0.6182,
+   "100.0": 0.6204
+  },
+  "logistic_regression/before": {
+   "0.0": 0.5548,
+   "5.0": 0.5718,
+   "10.0": 0.5802,
+   "15.0": 0.5969,
+   "20.0": 0.6084,
+   "25.0": 0.6108,
+   "30.0": 0.6117,
+   "35.0": 0.6164,
+   "40.0": 0.614,
+   "45.0": 0.6078,
+   "50.0": 0.6087,
+   "55.0": 0.6027,
+   "60.0": 0.5955,
+   "65.0": 0.5976,
+   "70.0": 0.594,
+   "75.0": 0.6018,
+   "80.0": 0.6081,
+   "85.0": 0.6135,
+   "90.0": 0.6199,
+   "95.0": 0.6197,
+   "100.0": 0.6225
+  },
+  "majority_class/baseline": {
+   "0.0": 0.4463,
+   "5.0": 0.4572,
+   "10.0": 0.4689,
+   "15.0": 0.4854,
+   "20.0": 0.4983,
+   "25.0": 0.5054,
+   "30.0": 0.5055,
+   "35.0": 0.509,
+   "40.0": 0.5079,
+   "45.0": 0.5016,
+   "50.0": 0.5023,
+   "55.0": 0.4948,
+   "60.0": 0.4896,
+   "65.0": 0.4917,
+   "70.0": 0.4862,
+   "75.0": 0.4906,
+   "80.0": 0.4912,
+   "85.0": 0.4956,
+   "90.0": 0.5143,
+   "95.0": 0.5199,
+   "100.0": 0.5324
+  },
+  "random_forest/after": {
+   "0.0": 0.5578,
+   "5.0": 0.5737,
+   "10.0": 0.5853,
+   "15.0": 0.6029,
+   "20.0": 0.6175,
+   "25.0": 0.6231,
+   "30.0": 0.6241,
+   "35.0": 0.6265,
+   "40.0": 0.6204,
+   "45.0": 0.6115,
+   "50.0": 0.6092,
+   "55.0": 0.603,
+   "60.0": 0.5979,
+   "65.0": 0.6016,
+   "70.0": 0.5968,
+   "75.0": 0.6047,
+   "80.0": 0.608,
+   "85.0": 0.613,
+   "90.0": 0.6208,
+   "95.0": 0.6202,
+   "100.0": 0.6256
+  },
+  "random_forest/before": {
+   "0.0": 0.5578,
+   "5.0": 0.5737,
+   "10.0": 0.5853,
+   "15.0": 0.6029,
+   "20.0": 0.6175,
+   "25.0": 0.6231,
+   "30.0": 0.6241,
+   "35.0": 0.6265,
+   "40.0": 0.6204,
+   "45.0": 0.6115,
+   "50.0": 0.6092,
+   "55.0": 0.603,
+   "60.0": 0.5979,
+   "65.0": 0.6016,
+   "70.0": 0.5968,
+   "75.0": 0.6047,
+   "80.0": 0.608,
+   "85.0": 0.613,
+   "90.0": 0.6208,
+   "95.0": 0.6202,
+   "100.0": 0.6256
+  },
+  "transformer/after": {
+   "0.0": 0.5817,
+   "5.0": 0.5984,
+   "10.0": 0.6079,
+   "15.0": 0.6237,
+   "20.0": 0.6343,
+   "25.0": 0.6366,
+   "30.0": 0.6399,
+   "35.0": 0.6447,
+   "40.0": 0.6395,
+   "45.0": 0.632,
+   "50.0": 0.6284,
+   "55.0": 0.6227,
+   "60.0": 0.6188,
+   "65.0": 0.6215,
+   "70.0": 0.6164,
+   "75.0": 0.6246,
+   "80.0": 0.6305,
+   "85.0": 0.6376,
+   "90.0": 0.6458,
+   "95.0": 0.646,
+   "100.0": 0.6486
+  },
+  "transformer/before": {
+   "0.0": 0.5799,
+   "5.0": 0.6009,
+   "10.0": 0.6095,
+   "15.0": 0.6263,
+   "20.0": 0.6394,
+   "25.0": 0.6382,
+   "30.0": 0.6407,
+   "35.0": 0.6451,
+   "40.0": 0.6408,
+   "45.0": 0.6352,
+   "50.0": 0.6335,
+   "55.0": 0.6255,
+   "60.0": 0.6197,
+   "65.0": 0.6223,
+   "70.0": 0.6162,
+   "75.0": 0.6272,
+   "80.0": 0.6326,
+   "85.0": 0.6382,
+   "90.0": 0.6463,
+   "95.0": 0.6445,
+   "100.0": 0.6476
+  },
+  "xgboost/after": {
+   "0.0": 0.5862,
+   "5.0": 0.6046,
+   "10.0": 0.6144,
+   "15.0": 0.632,
+   "20.0": 0.6424,
+   "25.0": 0.6434,
+   "30.0": 0.6452,
+   "35.0": 0.6504,
+   "40.0": 0.6451,
+   "45.0": 0.6377,
+   "50.0": 0.6356,
+   "55.0": 0.6276,
+   "60.0": 0.6237,
+   "65.0": 0.6277,
+   "70.0": 0.6232,
+   "75.0": 0.6332,
+   "80.0": 0.6393,
+   "85.0": 0.645,
+   "90.0": 0.6511,
+   "95.0": 0.6497,
+   "100.0": 0.6513
+  },
+  "xgboost/before": {
+   "0.0": 0.5841,
+   "5.0": 0.6035,
+   "10.0": 0.6139,
+   "15.0": 0.6343,
+   "20.0": 0.6452,
+   "25.0": 0.646,
+   "30.0": 0.6475,
+   "35.0": 0.6526,
+   "40.0": 0.647,
+   "45.0": 0.6395,
+   "50.0": 0.6368,
+   "55.0": 0.6284,
+   "60.0": 0.6243,
+   "65.0": 0.6271,
+   "70.0": 0.6227,
+   "75.0": 0.6326,
+   "80.0": 0.638,
+   "85.0": 0.6452,
+   "90.0": 0.6513,
+   "95.0": 0.6491,
+   "100.0": 0.6514
+  }
+ }
+}
