@@ -3,7 +3,7 @@ paper_stats.py - every number quoted in the paper, computed from the saved
 results (no model is refit, nothing is tuned).
 
 Usage (from the repository root):
-    python paper/scripts/paper_stats.py --results-dir tuning_results_n7 \
+    python paper/paper_stats.py --results-dir tuning_results_n7 \
         --raw-csv data/engagement_dataset.csv --out paper/paper_numbers.json
 
 Reads

@@ -3,8 +3,8 @@ paper_figures.py - the four data figures in the paper, drawn from the saved
 results (no refits).
 
 Usage (from the repository root, after paper_stats.py):
-    python paper/scripts/paper_figures.py --results-dir tuning_results_n7 \
-        --numbers paper/paper_numbers.json --out-dir paper/figures
+    python paper/paper_figures.py --results-dir tuning_results_n7 \
+        --numbers paper/paper_numbers.json --out-dir figures
 
 Writes vector PDFs sized for an IEEE two-column page (3.5 in column):
     confusion_xgboost.pdf      row-normalised confusion matrix, XGBoost

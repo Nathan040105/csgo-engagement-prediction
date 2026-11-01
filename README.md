@@ -4,8 +4,7 @@ Code, results and trained models for the Honours research project **"A Machine
 Learning Approach to Predicting Player Engagement Success in CS:GO"**
 (University of the Witwatersrand, 2026).
 
-**Author:** Nathan Le Roux · **Supervisor:** Branden Ingram
-**Co-supervisor:** Pravesh Ranchod
+**Author:** Nathan Le Roux · **Supervisor:** Branden Ingram · **Co-supervisor:** Pravesh Ranchod
 
 The project predicts how a one-on-one fight between two players ends, using only
 the game state just before it starts. It extracts **402,873 engagements from
@@ -236,6 +235,23 @@ PyTorch `.pt` files are not pickles.
 
 ---
 
+## Paper
+
+`paper/` holds the two scripts behind the numbers and figures in the final
+paper, and `figures/` the four figures. From the repository root, with the
+dataset unzipped into `data/`:
+
+```bash
+python paper/paper_stats.py --results-dir tuning_results_n7 --raw-csv data/engagement_dataset.csv --out paper/paper_numbers.json
+python paper/paper_figures.py --results-dir tuning_results_n7 --numbers paper/paper_numbers.json --out-dir figures
+```
+
+`paper_stats.py` takes 2–3 minutes (most of it the 2,000 bootstrap
+resamples) and reproduces `paper/paper_numbers.json` exactly;
+`paper_figures.py` redraws the figures identically.
+
+---
+
 ## Reproducing the results
 
 **Getting the repository:**
@@ -377,6 +393,20 @@ the script.
   `grouped_permutation_importance/`).
 - Every model has recall 0 on `mutual_kill` (204 engagements in total, 40 in
   the test matches).
+- The released `tuning_data/logistic_regression_features.csv` is the exact file
+  the published logistic regression was trained on, but five cells in five
+  training rows are corrupted: `hp_difference` in data rows 230,452, 230,453
+  and 230,714, and `attacker_decoys` in rows 399,409 and 399,671 (counting
+  from 0, header excluded). Rebuilding the file with `feature_engineering.py`
+  gives the correct values; a logistic regression refit on the rebuilt file
+  scores test ROC-AUC 0.7922 instead of 0.7921 (109 of 81,693 test predictions
+  change). The other feature files are not affected.
+- `vertical_angle_difference` is the absolute difference of the two pitch
+  angles without wrapping at 360°, so most values exceed 180°
+  (`feature_extractor.py`).
+- The split groups engagements by demo (one map), so the same teams can appear
+  on both sides: 222 of the 278 test matches share all ten players with a
+  training or validation match.
 - The transformer's feature elimination used 3 repeats and 30% steps (cost),
   against 7 repeats and 25% for the other models. The logistic regression,
   random forest and XGBoost eliminations ran with an earlier `model_tuning.py`
