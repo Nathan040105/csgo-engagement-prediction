@@ -5,7 +5,7 @@ Learning Approach to Predicting Player Engagement Success in CS:GO"**
 (University of the Witwatersrand, 2026).
 
 **Author:** Nathan Le Roux · **Supervisor:** Branden Ingram
-<!-- Add the co-supervisor here if the final report lists one. -->
+**Co-supervisor:** Pravesh Ranchod
 
 The project predicts how a one-on-one fight between two players ends, using only
 the game state just before it starts. It extracts **402,873 engagements from
@@ -178,7 +178,7 @@ byte-identical copies of `xgboost_features.csv`: copy it to
 
 - **Seven maps:** de_ancient, de_dust2, de_inferno, de_mirage, de_nuke,
   de_overpass, de_train. **de_vertigo is excluded** (`config.py`,
-  `NAV_MISMATCH_EXCLUDED_MAPS`): a December 2022 update changed its geometry,
+  `NAV_MISMATCH_EXCLUDED_MAPS`): a 2022 update changed its geometry,
   after the ESTA matches were played but before the CS:GO Legacy files the nav
   mesh comes from were frozen, so its nav mesh does not match the demos.
 - **Matches:** 602 LAN and 786 online. Engagements per map: inferno 89,208,
