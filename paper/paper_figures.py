@@ -45,14 +45,15 @@ CLASS_ORDER = ["attacker_won", "victim_won", "mutual_kill", "interrupted", "time
 CLASS_CODE = {"attacker_won": 0, "interrupted": 1, "mutual_kill": 2, "round_end": 3,
               "timedout": 4, "victim_won": 5}
 
-COL_W = 3.45   # inches, IEEE column is 3.5 in
+COL_W = 3.5    # inches: exactly the IEEE column width, so text is not rescaled
 
 
 def setup() -> None:
     plt.rcParams.update({
         "font.family": "STIXGeneral", "mathtext.fontset": "stix",
-        "font.size": 7.5, "axes.titlesize": 7.5, "axes.labelsize": 7.5,
-        "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 6.8,
+        # 8 pt everywhere = the IEEE caption size (no figure text smaller than a caption)
+        "font.size": 8, "axes.titlesize": 8, "axes.labelsize": 8,
+        "xtick.labelsize": 8, "ytick.labelsize": 8, "legend.fontsize": 8,
         "axes.edgecolor": "#9a9890", "axes.linewidth": 0.6,
         "xtick.color": INK2, "ytick.color": INK2, "axes.labelcolor": INK,
         "xtick.major.width": 0.5, "ytick.major.width": 0.5,
@@ -77,13 +78,13 @@ def confusion(numbers: dict, out: Path) -> None:
     support = cm.sum(axis=1)
     rows = cm / support[:, None]
 
-    fig, ax = plt.subplots(figsize=(COL_W, 1.95))
+    fig, ax = plt.subplots(figsize=(COL_W, 2.1))
     ax.imshow(rows, cmap=SEQ, vmin=0, vmax=1, aspect="auto")
     for i in range(rows.shape[0]):
         for j in range(rows.shape[1]):
             v = rows[i, j]
             text = f"{100 * v:.1f}" if v >= 0.0005 else "0"
-            ax.text(j, i, text, ha="center", va="center", fontsize=6.6,
+            ax.text(j, i, text, ha="center", va="center", fontsize=8,
                     color="white" if v > 0.55 else INK)
     names = [c.replace("_", r"\_") for c in CLASS_ORDER]
     ax.set_xticks(range(6))
@@ -115,7 +116,7 @@ def grouped_importance(results: Path, out: Path) -> None:
              "Connection / other": "Connection (ping, LAN)"}
     nfeat = cats.groupby("group")["n_features"].first()
 
-    fig, ax = plt.subplots(figsize=(COL_W, 2.18))
+    fig, ax = plt.subplots(figsize=(COL_W, 2.3))
     n = len(MODELS)
     height = 0.19
     y0 = np.arange(len(order))[::-1]
@@ -128,7 +129,7 @@ def grouped_importance(results: Path, out: Path) -> None:
                     ecolor=INK2, elinewidth=0.5, capsize=1.2, capthick=0.5, zorder=3)
     ax.set_yticks(y0)
     ax.set_yticklabels([f"{short.get(c, c)} ({int(nfeat[c])})" for c in order])
-    ax.set_xlabel("Test ROC-AUC lost when the category is shuffled")
+    ax.set_xlabel("Test ROC-AUC lost when shuffled")
     ax.set_xlim(0, 0.115)
     ax.tick_params(axis="y", length=0)
     clean(ax, "x")
@@ -141,7 +142,7 @@ def grouped_importance(results: Path, out: Path) -> None:
 # ---------------------------------------------------------------------------
 def accuracy_progression(results: Path, out: Path) -> None:
     a = pd.read_csv(results / "accuracy_over_time" / "window_20pct" / "accuracy_over_time.csv")
-    fig, ax = plt.subplots(figsize=(COL_W, 2.06))
+    fig, ax = plt.subplots(figsize=(COL_W, 2.35))
     xb = a[(a["model"] == "xgboost") & (a["variant"] == "before")]
     ax.fill_between(xb["progress_pct"], xb["mean_accuracy"] - xb["std"], xb["mean_accuracy"] + xb["std"],
                     color=COLOUR["xgboost"], alpha=0.12, linewidth=0, zorder=1,
@@ -160,8 +161,8 @@ def accuracy_progression(results: Path, out: Path) -> None:
     ax.set_xlabel("Match progression (%)")
     ax.set_ylabel("Accuracy (20% window)")
     clean(ax, "y")
-    ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.01, 1.0, 0.2), mode="expand", ncol=3,
-              frameon=False, columnspacing=0.6, handlelength=1.9, borderaxespad=0.0, fontsize=6.3)
+    ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.01, 1.0, 0.2), mode="expand", ncol=2,
+              frameon=False, columnspacing=0.8, handlelength=2.0, borderaxespad=0.0, fontsize=8)
     fig.tight_layout(pad=0.3)
     fig.savefig(out)
     plt.close(fig)
@@ -185,7 +186,7 @@ def rfe_curves(numbers: dict, out: Path) -> None:
     ax.set_xlabel("Inputs remaining (% of the starting set)")
     ax.set_ylabel("Validation ROC-AUC")
     clean(ax, "y")
-    ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.56), frameon=False, fontsize=6.3,
+    ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.56), frameon=False, fontsize=8,
               handlelength=2.2, borderaxespad=0.1)
     fig.tight_layout(pad=0.3)
     fig.savefig(out)
