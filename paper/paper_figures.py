@@ -83,7 +83,8 @@ def confusion(numbers: dict, out: Path) -> None:
     for i in range(rows.shape[0]):
         for j in range(rows.shape[1]):
             v = rows[i, j]
-            text = f"{100 * v:.1f}" if v >= 0.0005 else "0"
+            # "0" only for cells that are truly empty; tiny non-zero shares say so
+            text = f"{100 * v:.1f}" if v >= 0.0005 else ("<0.1" if v > 0 else "0")
             ax.text(j, i, text, ha="center", va="center", fontsize=8,
                     color="white" if v > 0.55 else INK)
     names = [c.replace("_", r"\_") for c in CLASS_ORDER]
